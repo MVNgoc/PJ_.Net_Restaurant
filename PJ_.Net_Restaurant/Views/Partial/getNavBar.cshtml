@@ -1,0 +1,12 @@
+﻿@model IEnumerable<PJ_.Net_Restaurant.Models.Navbar>
+
+@foreach (var i in Model)
+            {
+                <li class="navbar-item">
+                    <a href="#home" class="navbar-link hover-underline">
+                        <div class="separator"></div>
+
+                        <span class="span">@i.name</span>
+                    </a>
+                </li>
+            }
