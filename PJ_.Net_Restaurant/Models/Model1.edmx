@@ -33,6 +33,17 @@
           <Property Name="order" Type="int" />
           <Property Name="datebegin" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="Logo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="img" Type="nvarchar" MaxLength="50" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
         <EntityType Name="Navbar">
           <Key>
             <PropertyRef Name="id" />
@@ -48,6 +59,7 @@
         <EntityContainer Name="RestaurantModelStoreContainer">
           <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Header" EntityType="Self.Header" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logo" EntityType="Self.Logo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -70,6 +82,7 @@
           <EntitySet Name="Navbars" EntityType="Self.Navbar" />
           <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
           <EntitySet Name="Headers" EntityType="RestaurantModel.Header" />
+          <EntitySet Name="Logoes" EntityType="RestaurantModel.Logo" />
         </EntityContainer>
         <EntityType Name="Food">
           <Key>
@@ -94,6 +107,17 @@
           <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="timeopen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="phonenum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Logo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="hide" Type="Boolean" />
           <Property Name="order" Type="Int32" />
@@ -144,6 +168,18 @@
                 <ScalarProperty Name="phonenum" ColumnName="phonenum" />
                 <ScalarProperty Name="timeopen" ColumnName="timeopen" />
                 <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logoes">
+            <EntityTypeMapping TypeName="RestaurantModel.Logo">
+              <MappingFragment StoreEntitySet="Logo">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="img" ColumnName="img" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

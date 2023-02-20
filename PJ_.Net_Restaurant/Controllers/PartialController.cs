@@ -26,6 +26,15 @@ namespace PJ_.Net_Restaurant.Controllers
             return PartialView(v.ToList());
         }
 
+        public ActionResult getLogo()
+        {
+            var v = from t in db.Logoes
+                    where t.hide == true
+                    select t;
+
+            return PartialView(v.ToList());
+        }
+
         public ActionResult getHeader()
         {
             var v = from t in db.Headers
@@ -34,5 +43,10 @@ namespace PJ_.Net_Restaurant.Controllers
 
             return PartialView(v.ToList());
         }
+
+        /*public ActionResult getFooter()
+        {
+
+        }*/
     }
 }

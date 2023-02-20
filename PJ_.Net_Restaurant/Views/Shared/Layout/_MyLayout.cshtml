@@ -87,9 +87,7 @@
     <header class="header" data-header>
         <div class="container">
 
-            <a href="#" class="logo">
-                <img src="~/Content/images/logo.svg" width="160" height="50" alt="Grilli - Home">
-            </a>
+            @{ Html.RenderAction("getLogo", "Partial");}
 
             <nav class="navbar" data-navbar>
 
@@ -97,9 +95,7 @@
                     <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
                 </button>
 
-                <a href="#" class="logo">
-                    <img src="~/Content/images/logo.svg" width="160" height="50" alt="Grilli - Home">
-                </a>
+                @{ Html.RenderAction("getLogo", "Partial");}
 
                 <ul class="navbar-list">
 

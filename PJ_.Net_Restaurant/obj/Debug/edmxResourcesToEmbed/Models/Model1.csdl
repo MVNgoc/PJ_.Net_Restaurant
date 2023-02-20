@@ -16,6 +16,7 @@
     <EntitySet Name="Navbars" EntityType="Self.Navbar" />
     <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
     <EntitySet Name="Headers" EntityType="RestaurantModel.Header" />
+    <EntitySet Name="Logoes" EntityType="RestaurantModel.Logo" />
   </EntityContainer>
   <EntityType Name="Food">
     <Key>
@@ -40,6 +41,17 @@
     <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="timeopen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="phonenum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Logo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="hide" Type="Boolean" />
     <Property Name="order" Type="Int32" />

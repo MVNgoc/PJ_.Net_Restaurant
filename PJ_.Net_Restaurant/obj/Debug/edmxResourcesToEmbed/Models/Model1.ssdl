@@ -28,6 +28,17 @@
     <Property Name="order" Type="int" />
     <Property Name="datebegin" Type="smalldatetime" />
   </EntityType>
+  <EntityType Name="Logo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="img" Type="nvarchar" MaxLength="50" />
+    <Property Name="meta" Type="nvarchar" MaxLength="50" />
+    <Property Name="hide" Type="bit" />
+    <Property Name="order" Type="int" />
+    <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
   <EntityType Name="Navbar">
     <Key>
       <PropertyRef Name="id" />
@@ -43,6 +54,7 @@
   <EntityContainer Name="RestaurantModelStoreContainer">
     <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Header" EntityType="Self.Header" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logo" EntityType="Self.Logo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
