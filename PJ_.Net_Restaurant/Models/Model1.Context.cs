@@ -29,5 +29,7 @@ namespace PJ_.Net_Restaurant.Models
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<Header> Headers { get; set; }
         public virtual DbSet<Logo> Logoes { get; set; }
+        public virtual DbSet<Offer> Offers { get; set; }
+        public virtual DbSet<Social> Socials { get; set; }
     }
 }

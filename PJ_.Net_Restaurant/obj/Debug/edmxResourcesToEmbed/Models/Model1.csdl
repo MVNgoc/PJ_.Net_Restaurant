@@ -17,6 +17,8 @@
     <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
     <EntitySet Name="Headers" EntityType="RestaurantModel.Header" />
     <EntitySet Name="Logoes" EntityType="RestaurantModel.Logo" />
+    <EntitySet Name="Offers" EntityType="RestaurantModel.Offer" />
+    <EntitySet Name="Socials" EntityType="RestaurantModel.Social" />
   </EntityContainer>
   <EntityType Name="Food">
     <Key>
@@ -45,6 +47,7 @@
     <Property Name="hide" Type="Boolean" />
     <Property Name="order" Type="Int32" />
     <Property Name="datebegin" Type="DateTime" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Logo">
     <Key>
@@ -52,6 +55,29 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="info" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Social">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="hide" Type="Boolean" />
     <Property Name="order" Type="Int32" />

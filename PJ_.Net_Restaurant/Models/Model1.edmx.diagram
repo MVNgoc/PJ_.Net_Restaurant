@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="RestaurantModel.Food" Width="1.5" PointX="3.75" PointY="0.75" />
         <EntityTypeShape EntityType="RestaurantModel.Header" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="RestaurantModel.Logo" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="RestaurantModel.Offer" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="RestaurantModel.Social" Width="1.5" PointX="6.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

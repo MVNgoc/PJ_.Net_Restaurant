@@ -28,6 +28,7 @@
           <Property Name="address" Type="nvarchar" MaxLength="50" />
           <Property Name="timeopen" Type="nvarchar" MaxLength="50" />
           <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="meta" Type="nvarchar" MaxLength="50" />
           <Property Name="hide" Type="bit" />
           <Property Name="order" Type="int" />
@@ -56,11 +57,36 @@
           <Property Name="order" Type="int" />
           <Property Name="datebegin" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="Offer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="info" Type="nvarchar" MaxLength="100" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Social">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="link" Type="nvarchar(max)" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
         <EntityContainer Name="RestaurantModelStoreContainer">
           <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Header" EntityType="Self.Header" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logo" EntityType="Self.Logo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Social" EntityType="Self.Social" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -83,6 +109,8 @@
           <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
           <EntitySet Name="Headers" EntityType="RestaurantModel.Header" />
           <EntitySet Name="Logoes" EntityType="RestaurantModel.Logo" />
+          <EntitySet Name="Offers" EntityType="RestaurantModel.Offer" />
+          <EntitySet Name="Socials" EntityType="RestaurantModel.Social" />
         </EntityContainer>
         <EntityType Name="Food">
           <Key>
@@ -111,6 +139,7 @@
           <Property Name="hide" Type="Boolean" />
           <Property Name="order" Type="Int32" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Logo">
           <Key>
@@ -118,6 +147,29 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Offer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="info" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Social">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="hide" Type="Boolean" />
           <Property Name="order" Type="Int32" />
@@ -161,6 +213,7 @@
           <EntitySetMapping Name="Headers">
             <EntityTypeMapping TypeName="RestaurantModel.Header">
               <MappingFragment StoreEntitySet="Header">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="datebegin" ColumnName="datebegin" />
                 <ScalarProperty Name="order" ColumnName="order" />
                 <ScalarProperty Name="hide" ColumnName="hide" />
@@ -180,6 +233,31 @@
                 <ScalarProperty Name="hide" ColumnName="hide" />
                 <ScalarProperty Name="meta" ColumnName="meta" />
                 <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offers">
+            <EntityTypeMapping TypeName="RestaurantModel.Offer">
+              <MappingFragment StoreEntitySet="Offer">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Socials">
+            <EntityTypeMapping TypeName="RestaurantModel.Social">
+              <MappingFragment StoreEntitySet="Social">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

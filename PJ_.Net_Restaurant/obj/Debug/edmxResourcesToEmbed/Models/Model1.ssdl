@@ -23,6 +23,7 @@
     <Property Name="address" Type="nvarchar" MaxLength="50" />
     <Property Name="timeopen" Type="nvarchar" MaxLength="50" />
     <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />
     <Property Name="order" Type="int" />
@@ -51,10 +52,35 @@
     <Property Name="order" Type="int" />
     <Property Name="datebegin" Type="smalldatetime" />
   </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="info" Type="nvarchar" MaxLength="100" />
+    <Property Name="meta" Type="nvarchar" MaxLength="50" />
+    <Property Name="hide" Type="bit" />
+    <Property Name="order" Type="int" />
+    <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Social">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="link" Type="nvarchar(max)" />
+    <Property Name="meta" Type="nvarchar" MaxLength="50" />
+    <Property Name="hide" Type="bit" />
+    <Property Name="order" Type="int" />
+    <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
   <EntityContainer Name="RestaurantModelStoreContainer">
     <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Header" EntityType="Self.Header" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Logo" EntityType="Self.Logo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Social" EntityType="Self.Social" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

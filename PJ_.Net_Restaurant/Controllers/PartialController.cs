@@ -15,7 +15,8 @@ namespace PJ_.Net_Restaurant.Controllers
         {
             return View();
         }
-
+        
+        /*----------------------- HEADER ---------------------------*/
         public ActionResult getNavBar()
         {
             var v = from t in db.Navbars
@@ -43,10 +44,47 @@ namespace PJ_.Net_Restaurant.Controllers
 
             return PartialView(v.ToList());
         }
+        /*-----------------------------------------------------------*/
 
-        /*public ActionResult getFooter()
+        /*----------------------- FOOTER ---------------------------*/
+        public ActionResult getSocial()
         {
+            var v = from t in db.Socials
+                    where t.hide == true
+                    orderby t.order ascending
+                    select t;
 
-        }*/
+            return PartialView(v.ToList());
+        }
+
+        public ActionResult getOffer()
+        {
+            var v = from t in db.Offers
+                    where t.hide == true
+                    orderby t.order ascending
+                    select t;
+
+            return PartialView(v.ToList());
+        }
+
+        public ActionResult getFooterMenu()
+        {
+            var v = from t in db.Navbars
+                    where t.hide == true
+                    orderby t.order ascending
+                    select t;
+
+            return PartialView(v.ToList());
+        }
+
+        public ActionResult getInfoRestaurant()
+        {
+            var v = from t in db.Headers
+                    where t.hide == true
+                    select t;
+
+            return PartialView(v.ToList());
+        }
+        /*-----------------------------------------------------------*/
     }
 }

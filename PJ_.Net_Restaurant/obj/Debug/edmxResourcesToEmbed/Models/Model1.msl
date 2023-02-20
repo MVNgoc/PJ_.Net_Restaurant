@@ -33,6 +33,7 @@
     <EntitySetMapping Name="Headers">
       <EntityTypeMapping TypeName="RestaurantModel.Header">
         <MappingFragment StoreEntitySet="Header">
+          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="datebegin" ColumnName="datebegin" />
           <ScalarProperty Name="order" ColumnName="order" />
           <ScalarProperty Name="hide" ColumnName="hide" />
@@ -52,6 +53,31 @@
           <ScalarProperty Name="hide" ColumnName="hide" />
           <ScalarProperty Name="meta" ColumnName="meta" />
           <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offers">
+      <EntityTypeMapping TypeName="RestaurantModel.Offer">
+        <MappingFragment StoreEntitySet="Offer">
+          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="hide" ColumnName="hide" />
+          <ScalarProperty Name="meta" ColumnName="meta" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Socials">
+      <EntityTypeMapping TypeName="RestaurantModel.Social">
+        <MappingFragment StoreEntitySet="Social">
+          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="hide" ColumnName="hide" />
+          <ScalarProperty Name="meta" ColumnName="meta" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
