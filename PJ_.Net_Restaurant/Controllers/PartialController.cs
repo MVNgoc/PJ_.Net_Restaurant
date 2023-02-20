@@ -25,5 +25,14 @@ namespace PJ_.Net_Restaurant.Controllers
 
             return PartialView(v.ToList());
         }
+
+        public ActionResult getHeader()
+        {
+            var v = from t in db.Headers
+                    where t.hide == true
+                    select t;
+
+            return PartialView(v.ToList());
+        }
     }
 }

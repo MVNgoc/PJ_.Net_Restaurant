@@ -1,0 +1,32 @@
+﻿@model IEnumerable<PJ_.Net_Restaurant.Models.Header>
+
+@foreach (var i in Model)
+{
+    <address class="topbar-item">
+        <div class="icon">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">
+            @i.address
+        </span>
+    </address>
+
+    <div class="separator"></div>
+
+    <div class="topbar-item item-2">
+        <div class="icon">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">@i.timeopen</span>
+    </div>
+
+    <a href="tel:+11234567890" class="topbar-item link">
+        <div class="icon">
+            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">@i.phonenum</span>
+    </a>
+}

@@ -14,5 +14,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="RestaurantModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="hide" ColumnName="hide" />
+          <ScalarProperty Name="meta" ColumnName="meta" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="sales" ColumnName="sales" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Headers">
+      <EntityTypeMapping TypeName="RestaurantModel.Header">
+        <MappingFragment StoreEntitySet="Header">
+          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="hide" ColumnName="hide" />
+          <ScalarProperty Name="meta" ColumnName="meta" />
+          <ScalarProperty Name="phonenum" ColumnName="phonenum" />
+          <ScalarProperty Name="timeopen" ColumnName="timeopen" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

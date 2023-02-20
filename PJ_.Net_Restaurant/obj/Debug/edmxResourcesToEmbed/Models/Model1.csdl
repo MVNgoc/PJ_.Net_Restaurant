@@ -14,5 +14,35 @@
   </EntityType>
   <EntityContainer Name="RestaurantEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Navbars" EntityType="Self.Navbar" />
+    <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
+    <EntitySet Name="Headers" EntityType="RestaurantModel.Header" />
   </EntityContainer>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Double" />
+    <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sales" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Header">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="timeopen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phonenum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
 </Schema>

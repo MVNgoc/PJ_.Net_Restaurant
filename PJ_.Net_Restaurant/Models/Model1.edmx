@@ -4,7 +4,35 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="float" />
+          <Property Name="describe" Type="nvarchar(max)" />
+          <Property Name="sales" Type="int" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Header">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="timeopen" Type="nvarchar" MaxLength="50" />
+          <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
         <EntityType Name="Navbar">
           <Key>
             <PropertyRef Name="id" />
@@ -18,10 +46,11 @@
           <Property Name="datebegin" Type="smalldatetime" />
         </EntityType>
         <EntityContainer Name="RestaurantModelStoreContainer">
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Header" EntityType="Self.Header" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RestaurantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -39,7 +68,37 @@
         </EntityType>
         <EntityContainer Name="RestaurantEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Navbars" EntityType="Self.Navbar" />
+          <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
+          <EntitySet Name="Headers" EntityType="RestaurantModel.Header" />
         </EntityContainer>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Double" />
+          <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sales" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Header">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="timeopen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phonenum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -56,6 +115,36 @@
                 <ScalarProperty Name="hide" ColumnName="hide" />
                 <ScalarProperty Name="order" ColumnName="order" />
                 <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foods">
+            <EntityTypeMapping TypeName="RestaurantModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="sales" ColumnName="sales" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Headers">
+            <EntityTypeMapping TypeName="RestaurantModel.Header">
+              <MappingFragment StoreEntitySet="Header">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="phonenum" ColumnName="phonenum" />
+                <ScalarProperty Name="timeopen" ColumnName="timeopen" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
