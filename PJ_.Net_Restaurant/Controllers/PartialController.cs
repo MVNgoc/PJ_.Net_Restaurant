@@ -33,7 +33,7 @@ namespace PJ_.Net_Restaurant.Controllers
                     where t.hide == true
                     select t;
 
-            return PartialView(v.ToList());
+            return PartialView(v.FirstOrDefault());
         }
 
         public ActionResult getHeader()
@@ -42,7 +42,7 @@ namespace PJ_.Net_Restaurant.Controllers
                     where t.hide == true
                     select t;
 
-            return PartialView(v.ToList());
+            return PartialView(v.FirstOrDefault());
         }
         /*-----------------------------------------------------------*/
 
