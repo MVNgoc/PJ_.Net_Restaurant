@@ -14,41 +14,17 @@
   </EntityType>
   <EntityContainer Name="RestaurantEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Navbars" EntityType="Self.Navbar" />
-    <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
-    <EntitySet Name="Headers" EntityType="RestaurantModel.Header" />
     <EntitySet Name="Logoes" EntityType="RestaurantModel.Logo" />
     <EntitySet Name="Offers" EntityType="RestaurantModel.Offer" />
     <EntitySet Name="Socials" EntityType="RestaurantModel.Social" />
+    <EntitySet Name="FoodStyles" EntityType="RestaurantModel.FoodStyle" />
+    <EntitySet Name="Stories" EntityType="RestaurantModel.Story" />
+    <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
+    <EntitySet Name="Contacts" EntityType="RestaurantModel.Contact" />
+    <EntitySet Name="OurStrengths" EntityType="RestaurantModel.OurStrength" />
+    <EntitySet Name="UpcomingEvents" EntityType="RestaurantModel.UpcomingEvent" />
+    <EntitySet Name="Banners" EntityType="RestaurantModel.Banner" />
   </EntityContainer>
-  <EntityType Name="Food">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="price" Type="Double" />
-    <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="sales" Type="Int32" />
-    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="hide" Type="Boolean" />
-    <Property Name="order" Type="Int32" />
-    <Property Name="datebegin" Type="DateTime" Precision="0" />
-  </EntityType>
-  <EntityType Name="Header">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="timeopen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="phonenum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="hide" Type="Boolean" />
-    <Property Name="order" Type="Int32" />
-    <Property Name="datebegin" Type="DateTime" Precision="0" />
-    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="Logo">
     <Key>
       <PropertyRef Name="id" />
@@ -77,6 +53,116 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="FoodStyle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Story">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phonenum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="imgbanner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="img1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="img2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="img3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Double" />
+    <Property Name="discountprice" Type="Double" />
+    <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sales" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="footstyle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="timeopen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phonenum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lunchdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lunchtime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dinnerdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dinnertime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="OurStrength">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="UpcomingEvent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="eventdate" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="headtitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="hide" Type="Boolean" />

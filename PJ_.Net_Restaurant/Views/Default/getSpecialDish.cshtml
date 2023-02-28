@@ -1,0 +1,34 @@
+﻿@model PJ_.Net_Restaurant.Models.Food
+
+<div class="special-dish-banner">
+    <img src="~/Uploads/images/@Model.img" width="940" height="900" loading="lazy" alt="@Model.footstyle"
+         class="img-cover">
+</div>
+
+<div class="special-dish-content bg-black-10">
+    <div class="container">
+
+        <img src="~/Uploads/images/badge-1.png" width="28" height="41" loading="lazy" alt="badge" class="abs-img">
+
+        <p class="section-subtitle label-2">Special Dish</p>
+
+        <h2 class="headline-1 section-title">@Model.name</h2>
+
+        <p class="section-text">
+            @Model.describe
+        </p>
+
+        <div class="wrapper">
+            <del class="del body-3">$@Model.price</del>
+
+            <span class="span body-1">$@Model.discountprice</span>
+        </div>
+
+        <a href="#" class="btn btn-primary">
+            <span class="text text-1">View All Menu</span>
+
+            <span class="text text-2" aria-hidden="true">View All Menu</span>
+        </a>
+
+    </div>
+</div>

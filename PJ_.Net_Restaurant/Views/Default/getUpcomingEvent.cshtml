@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PJ_.Net_Restaurant.Models.UpcomingEvent>
+
+@foreach (var i in Model)
+{
+    <li>
+        <div class="event-card has-before hover:shine">
+
+            <div class="card-banner img-holder" style="--width: 350; --height: 450;">
+                <img src="~/Uploads/images/@i.img" width="350" height="450" loading="lazy"
+                     alt="@i.title" class="img-cover">
+
+                <time class="publish-date label-2" datetime="@i.eventdate">@i.eventdate</time>
+            </div>
+
+            <div class="card-content">
+                <p class="card-subtitle label-2 text-center">@i.content</p>
+
+                <h3 class="card-title title-2 text-center">
+                    @i.title
+                </h3>
+            </div>
+
+        </div>
+    </li>
+}

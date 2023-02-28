@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PJ_.Net_Restaurant.Models.FoodStyle>
+
+@foreach(var i  in Model)
+            {
+                <li>
+                    <div class="service-card">
+
+                        <a href="@i.link" class="has-before hover:shine">
+                            <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                                <img src="~/Uploads/images/@i.img" width="285" height="336" loading="lazy" alt="@i.name"
+                                     class="img-cover">
+                            </figure>
+                        </a>
+
+                        <div class="card-content">
+
+                            <h3 class="title-4 card-title">
+                                <a href="#">@i.name</a>
+                            </h3>
+
+                            <a href="@i.link" class="btn-text hover-underline label-2">View Menu</a>
+
+                        </div>
+
+                    </div>
+                </li>
+            }

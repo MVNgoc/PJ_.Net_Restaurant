@@ -1,16 +1,13 @@
-﻿@model IEnumerable<PJ_.Net_Restaurant.Models.Header>
+﻿@model PJ_.Net_Restaurant.Models.Contact
 
-@foreach (var i in Model)
-{
     <address class="body-4">
-        @i.address
+        @Model.address
     </address>
 
-    <a href="mailto:@i.email" class="body-4 contact-link">@i.email</a>
+    <a href="mailto:@Model.email" class="body-4 contact-link">@Model.email</a>
 
-    <a href="tel:@i.phonenum" class="body-4 contact-link">Booking Request : @i.phonenum</a>
+    <a href="tel:@Model.phonenum" class="body-4 contact-link">Booking Request : @Model.phonenum</a>
 
     <p class="body-4">
-        @i.timeopen
+        Daily : @Model.timeopen
     </p>
-}

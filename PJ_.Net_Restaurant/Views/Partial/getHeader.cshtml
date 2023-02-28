@@ -1,4 +1,4 @@
-﻿@model PJ_.Net_Restaurant.Models.Header
+﻿@model PJ_.Net_Restaurant.Models.Contact
 
 <address class="topbar-item">
     <div class="icon">
@@ -17,10 +17,10 @@
         <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
     </div>
 
-    <span class="span">@Model.timeopen</span>
+    <span class="span">Daily : @Model.timeopen</span>
 </div>
 
-<a href="tel:+11234567890" class="topbar-item link">
+<a href="tel:" + @Model.phonenum class="topbar-item link">
     <div class="icon">
         <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
     </div>

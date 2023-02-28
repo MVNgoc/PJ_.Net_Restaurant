@@ -12,21 +12,20 @@ namespace PJ_.Net_Restaurant.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Food
+    public partial class Story
     {
         public int id { get; set; }
         public string name { get; set; }
-        public Nullable<double> price { get; set; }
-        public Nullable<double> discountprice { get; set; }
-        public string describe { get; set; }
-        public Nullable<int> sales { get; set; }
-        public string type { get; set; }
-        public string footstyle { get; set; }
+        public string content { get; set; }
+        public string phonenum { get; set; }
         public string link { get; set; }
+        public string imgbanner { get; set; }
+        public string img1 { get; set; }
+        public string img2 { get; set; }
+        public string img3 { get; set; }
         public string meta { get; set; }
         public Nullable<bool> hide { get; set; }
         public Nullable<int> order { get; set; }
         public Nullable<System.DateTime> datebegin { get; set; }
-        public string img { get; set; }
     }
 }

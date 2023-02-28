@@ -38,7 +38,16 @@ namespace PJ_.Net_Restaurant.Controllers
 
         public ActionResult getHeader()
         {
-            var v = from t in db.Headers
+            var v = from t in db.Contacts
+                    where t.hide == true
+                    select t;
+
+            return PartialView(v.FirstOrDefault());
+        }
+
+        public ActionResult getVisitUs()
+        {
+            var v = from t in db.Contacts
                     where t.hide == true
                     select t;
 
@@ -79,12 +88,14 @@ namespace PJ_.Net_Restaurant.Controllers
 
         public ActionResult getInfoRestaurant()
         {
-            var v = from t in db.Headers
+            var v = from t in db.Contacts
                     where t.hide == true
                     select t;
 
-            return PartialView(v.ToList());
+            return PartialView(v.FirstOrDefault());
         }
         /*-----------------------------------------------------------*/
+
+
     }
 }

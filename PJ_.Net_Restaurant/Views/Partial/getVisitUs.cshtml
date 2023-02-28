@@ -1,0 +1,19 @@
+﻿@model PJ_.Net_Restaurant.Models.Contact
+
+<p class="headline-1 navbar-title">Visit Us</p>
+
+<address class="body-4">
+    @Model.address
+</address>
+
+<p class="body-4 navbar-text">Open: @Model.timeopen</p>
+
+<a href="mailto:booking@grilli.com" class="body-4 sidebar-link">@Model.email</a>
+
+<div class="separator"></div>
+
+<p class="contact-label">Booking Request</p>
+
+<a href="tel:@Model.phonenum" class="body-1 contact-number hover-underline">
+    @Model.phonenum
+</a>
