@@ -95,7 +95,5 @@ namespace PJ_.Net_Restaurant.Controllers
             return PartialView(v.FirstOrDefault());
         }
         /*-----------------------------------------------------------*/
-
-
     }
 }

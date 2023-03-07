@@ -16,6 +16,7 @@ namespace PJ_.Net_Restaurant.Models
     {
         public int id { get; set; }
         public string name { get; set; }
+        public string img { get; set; }
         public Nullable<double> price { get; set; }
         public Nullable<double> discountprice { get; set; }
         public string describe { get; set; }
@@ -27,6 +28,5 @@ namespace PJ_.Net_Restaurant.Models
         public Nullable<bool> hide { get; set; }
         public Nullable<int> order { get; set; }
         public Nullable<System.DateTime> datebegin { get; set; }
-        public string img { get; set; }
     }
 }

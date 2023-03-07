@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "MenuFood";
+    Layout = "~/Views/Shared/Layout/_MyLayout.cshtml";
+}
+
+<article>
+    <!--
+      - #HERO
+    -->
+
+    <section class="hero text-center" aria-label="home" id="home">
+
+        <ul class="hero-slider" data-hero-slider>
+
+            @{ Html.RenderAction("getBanner", "Default");}
+
+        </ul>
+
+        <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+            <ion-icon name="chevron-back"></ion-icon>
+        </button>
+
+        <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+            <ion-icon name="chevron-forward"></ion-icon>
+        </button>
+
+        <a href="#" class="hero-btn has-after">
+            <img src="~/Uploads/images/hero-icon.png" width="48" height="48" alt="booking icon">
+
+            <span class="label-2 text-center span">Book A Table</span>
+        </a>
+
+    </section>
+
+    <section class="section menu" aria-label="menu-label" id="menu">
+        <div class="container">
+
+            @if (Model.name == "Appetizers")
+            {
+                <div class="pagination select-kind-menu">
+                    <ul>
+                        <a href="#" class="active">
+                        <li>Appetizers</li>
+                        </a>
+                        <a href="../Entree/">
+                        <li>Entree</li>
+                        </a>
+                        <a href="../Dessert/">
+                        <li>Dessert</li>
+                        </a>
+                        <a href="../Drinks/">
+                        <li>Drinks</li>
+                        </a>
+                    </ul>
+                </div>
+            }
+            else if (Model.name == "Dessert")
+            {
+                <div class="pagination select-kind-menu">
+                    <ul>
+                        <a href="../Appetizers/">
+                        <li>Appetizers</li>
+                        </a>
+                        <a href="../Entree/">
+                        <li>Entree</li>
+                        </a>
+                        <a href="#" class="active">
+                        <li>Dessert</li>
+                        </a>
+                        <a href="../Drinks/">
+                        <li>Drinks</li>
+                        </a>
+                    </ul>
+                </div>
+            }
+            else if (Model.name == "Drinks")
+            {
+                <div class="pagination select-kind-menu">
+                    <ul>
+                        <a href="../Appetizers/">
+                        <li>Appetizers</li>
+                        </a>
+                        <a href="../Entree/">
+                        <li>Entree</li>
+                        </a>
+                        <a href="../Dessert/">
+                        <li>Dessert</li>
+                        </a>
+                        <a href="#" class="active">
+                        <li>Drinks</li>
+                        </a>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div class="pagination select-kind-menu">
+                    <ul>
+                        <a href="../Appetizers/">
+                        <li>Appetizers</li>
+                        </a>
+                        <a href="#" class="active">
+                        <li>Entree</li>
+                        </a>
+                        <a href="../Dessert/">
+                        <li>Dessert</li>
+                        </a>
+                        <a href="../Drinks/">
+                        <li>Drinks</li>
+                        </a>
+                    </ul>
+                </div>
+            }
+
+            <p class="section-subtitle text-center label-2">Menu</p>
+            <h2 class="headline-1 section-title text-center">@Model.name Menu</h2>
+
+            <ul class="grid-list">
+                @Html.Action("getFoods", "FoodMenu", new {name = Model.name })
+
+            </ul>
+
+            <p class="menu-text text-center">
+                During winter daily from <span class="span">7:00 pm</span> to <span class="span">9:00 pm</span>
+            </p>
+
+            <div class="pagination">
+                <ul>
+                    <a href="">
+                    <li>Previous</li>
+                    </a>
+                    <a href="">
+                    <li>Next</li>
+                    </a>
+                    <a href="" class="active">
+                    <li>1</li>
+                    </a>
+                    <a href="">
+                    <li>2</li>
+                    </a>
+                    <a href="">
+                    <li>3</li>
+                    </a>
+                    <a href="">
+                    <li>...</li>
+                    </a>
+                    <a href="">
+                    <li>99</li>
+                    </a>
+                </ul>
+            </div>
+
+
+            <img src="~/Uploads/images/shape-5.png" width="921" height="1036" loading="lazy" alt="shape"
+                 class="shape shape-2 move-anim">
+            <img src="~/Uploads/images/shape-6.png" width="343" height="345" loading="lazy" alt="shape"
+                 class="shape shape-3 move-anim">
+        </div>
+    </section>
+
+</article>
+

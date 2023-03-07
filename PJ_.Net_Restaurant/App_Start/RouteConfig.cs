@@ -13,11 +13,22 @@ namespace PJ_.Net_Restaurant
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("FoodMenu", "{type}/{meta}",
+                new { controller = "FoodMenu", action = "Index", id = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    {"type", "Food-Menu"}
+                },
+                new[] { "PJ_.Net_Restaurant.Controllers" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Default", action = "Index", id = UrlParameter.Optional }
             );
+
+            
         }
     }
 }

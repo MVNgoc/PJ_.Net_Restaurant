@@ -29,10 +29,11 @@ namespace PJ_.Net_Restaurant.Controllers
 
         public ActionResult getFoodStyle()
         {
-            var v = from t in db.FoodStyles
+            ViewBag.meta = "Food-Menu";
+            var v = (from t in db.FoodStyles
                     where t.hide == true
                     orderby t.order ascending
-                    select t;
+                    select t).Take(3);
 
             return PartialView(v.ToList());
         }

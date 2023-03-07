@@ -29,12 +29,12 @@ namespace PJ_.Net_Restaurant.Models
         public virtual DbSet<Logo> Logoes { get; set; }
         public virtual DbSet<Offer> Offers { get; set; }
         public virtual DbSet<Social> Socials { get; set; }
-        public virtual DbSet<FoodStyle> FoodStyles { get; set; }
         public virtual DbSet<Story> Stories { get; set; }
-        public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<OurStrength> OurStrengths { get; set; }
         public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
         public virtual DbSet<Banner> Banners { get; set; }
+        public virtual DbSet<Food> Foods { get; set; }
+        public virtual DbSet<FoodStyle> FoodStyles { get; set; }
     }
 }
