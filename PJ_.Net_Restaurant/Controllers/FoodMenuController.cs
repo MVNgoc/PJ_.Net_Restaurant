@@ -13,7 +13,6 @@ namespace PJ_.Net_Restaurant.Controllers
         // GET: FoodMenu
         public ActionResult Index(string meta)
         {
-            ViewBag.meta = "Food-Menu";
             var v = from t in db.FoodStyles
                     where t.meta == meta
                     select t;
