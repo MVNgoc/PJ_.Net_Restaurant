@@ -1,0 +1,8 @@
+﻿@model IEnumerable<PJ_.Net_Restaurant.Models.FoodStyle>
+
+@foreach (var i in Model)
+{
+    <a href="../@i.meta/" @if (@i.meta == ViewBag.meta) { <text> class="active" </text> }>
+        <li>@i.name</li>
+    </a>
+}

@@ -29,5 +29,16 @@ namespace PJ_.Net_Restaurant.Controllers
 
             return PartialView(v.ToList());
         }
+
+        public ActionResult getFoodsStyleBar(string meta)
+        {
+            ViewBag.meta = meta;
+            var v = from t in db.FoodStyles
+                    where t.hide == true
+                    orderby t.order ascending
+                    select t;
+
+            return PartialView(v.ToList());
+        }
     }
 }

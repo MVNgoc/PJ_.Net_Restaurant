@@ -307,6 +307,7 @@
     <Content Include="Views\Default\getUpcomingEvent.cshtml" />
     <Content Include="Views\Default\getBanner.cshtml" />
     <Content Include="Views\Partial\getVisitUs.cshtml" />
+    <Content Include="Views\FoodMenu\getFoodsStyleBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -36,88 +36,17 @@
     <section class="section menu" aria-label="menu-label" id="menu">
         <div class="container">
 
-            @if (Model.name == "Appetizers")
-            {
-                <div class="pagination select-kind-menu">
-                    <ul>
-                        <a href="#" class="active">
-                        <li>Appetizers</li>
-                        </a>
-                        <a href="../Entree/">
-                        <li>Entree</li>
-                        </a>
-                        <a href="../Dessert/">
-                        <li>Dessert</li>
-                        </a>
-                        <a href="../Drinks/">
-                        <li>Drinks</li>
-                        </a>
-                    </ul>
-                </div>
-            }
-            else if (Model.name == "Dessert")
-            {
-                <div class="pagination select-kind-menu">
-                    <ul>
-                        <a href="../Appetizers/">
-                        <li>Appetizers</li>
-                        </a>
-                        <a href="../Entree/">
-                        <li>Entree</li>
-                        </a>
-                        <a href="#" class="active">
-                        <li>Dessert</li>
-                        </a>
-                        <a href="../Drinks/">
-                        <li>Drinks</li>
-                        </a>
-                    </ul>
-                </div>
-            }
-            else if (Model.name == "Drinks")
-            {
-                <div class="pagination select-kind-menu">
-                    <ul>
-                        <a href="../Appetizers/">
-                        <li>Appetizers</li>
-                        </a>
-                        <a href="../Entree/">
-                        <li>Entree</li>
-                        </a>
-                        <a href="../Dessert/">
-                        <li>Dessert</li>
-                        </a>
-                        <a href="#" class="active">
-                        <li>Drinks</li>
-                        </a>
-                    </ul>
-                </div>
-            }
-            else
-            {
-                <div class="pagination select-kind-menu">
-                    <ul>
-                        <a href="../Appetizers/">
-                        <li>Appetizers</li>
-                        </a>
-                        <a href="#" class="active">
-                        <li>Entree</li>
-                        </a>
-                        <a href="../Dessert/">
-                        <li>Dessert</li>
-                        </a>
-                        <a href="../Drinks/">
-                        <li>Drinks</li>
-                        </a>
-                    </ul>
-                </div>
-            }
+            <div class="pagination select-kind-menu">
+                <ul>
+                    @Html.Action("getFoodsStyleBar", "FoodMenu", new { name = Model.name })
+                </ul>
+            </div>
 
             <p class="section-subtitle text-center label-2">Menu</p>
             <h2 class="headline-1 section-title text-center">@Model.name Menu</h2>
 
             <ul class="grid-list">
-                @Html.Action("getFoods", "FoodMenu", new {name = Model.name })
+                @Html.Action("getFoods", "FoodMenu", new { name = Model.name })
 
             </ul>
 
