@@ -1,6 +1,7 @@
 ﻿using PJ_.Net_Restaurant.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,13 +13,16 @@ namespace PJ_.Net_Restaurant.Controllers
         RestaurantEntities db = new RestaurantEntities();
 
         // GET: Default
-        public ActionResult Index()
+        public ActionResult Index(string type)
         {
+            ViewBag.type = type;
+            ViewBag.meta = "Food-Menu";
             return View();
         }
 
         public ActionResult getBanner()
         {
+            ViewBag.meta = "Food-Menu";
             var v = from t in db.Banners
                     where t.hide == true
                     orderby t.order ascending
@@ -50,6 +54,7 @@ namespace PJ_.Net_Restaurant.Controllers
 
         public ActionResult getSpecialDish()
         {
+            ViewBag.meta = "Food-Menu";
             var v = from t in db.Foods
                     where t.hide == true
                     where t.type == "SPECIAL"
@@ -60,6 +65,7 @@ namespace PJ_.Net_Restaurant.Controllers
 
         public ActionResult getFoodMenu()
         {
+            ViewBag.meta = "Food-Menu";
             var v = (from t in db.Foods
                     where t.hide == true
                     orderby t.sales descending

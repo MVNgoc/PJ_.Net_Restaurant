@@ -17,8 +17,9 @@ namespace PJ_.Net_Restaurant.Controllers
         }
         
         /*----------------------- HEADER ---------------------------*/
-        public ActionResult getNavBar()
+        public ActionResult getNavBar(string type)
         {
+            ViewBag.type = type;
             var v = from t in db.Navbars
                     where t.hide == true
                     orderby t.order ascending

@@ -22,10 +22,28 @@ namespace PJ_.Net_Restaurant
                 new[] { "PJ_.Net_Restaurant.Controllers" }
             );
 
+            routes.MapRoute("Home", "{type}",
+                new { controller = "Default", action = "Index", id = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    {"type", "Home"}
+                },
+                new[] { "PJ_.Net_Restaurant.Controllers" }
+            );
+
+            routes.MapRoute("Register", "{type}",
+                new { controller = "Public", action = "Register", id = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    {"type", "Register"}
+                },
+                new[] { "PJ_.Net_Restaurant.Controllers" }
+            );
+
             routes.MapRoute(
-                name: "Default",
+                name: "Login",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Default", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Public", action = "Index", id = UrlParameter.Optional }
             );
 
             

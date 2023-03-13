@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Layout/_PublicLayout.cshtml";
+}
+
+<div id="wrapper" class="wrapper">
+    <form class="form-login" id="form-login" onsubmit="return validateInput()" action="" method="post">
+        <h1 class="form-heading">Login Form</h1>
+        <div class="form-group form-group-login">
+            <i class="far fa-user"></i>
+            <input value="" type="text" class="form-input form-input-login" id="email" placeholder="Enter email" name="email">
+        </div>
+
+        <div class="form-group form-group-login">
+            <i class="fas fa-key"></i>
+            <input value="" type="password" class="form-input form-input-login" id="pwd" placeholder="Enter password" name="pwd">
+            <div id="eye">
+                <i class="far fa-eye"></i>
+            </div>
+        </div>
+        <div class="errorMessage my-3" id="message"></div>
+        <a href="" style="text-decoration: underline;text-underline-offset: 3px;">Forgot password?</a>
+        <button class="form-submit" type="submit">Login now</button>
+        <button class="form-submit" type="button">
+            <a href="Register/" type="submit">Register A New Account</a>
+        </button>
+    </form>
+</div>

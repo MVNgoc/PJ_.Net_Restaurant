@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FoodMenuController.cs" />
+    <Compile Include="Controllers\PublicController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -308,6 +309,9 @@
     <Content Include="Views\Default\getBanner.cshtml" />
     <Content Include="Views\Partial\getVisitUs.cshtml" />
     <Content Include="Views\FoodMenu\getFoodsStyleBar.cshtml" />
+    <Content Include="Views\Shared\Layout\_PublicLayout.cshtml" />
+    <Content Include="Views\Public\Index.cshtml" />
+    <Content Include="Views\Public\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

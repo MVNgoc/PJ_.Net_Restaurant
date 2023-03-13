@@ -1,5 +1,6 @@
 ﻿
 @{
+    ViewBag.type = @ViewBag.type;
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/Layout/_MyLayout.cshtml";
 }
@@ -9,7 +10,6 @@
     <!--
       - #HERO
     -->
-
     <section class="hero text-center" aria-label="home" id="home">
 
         <ul class="hero-slider" data-hero-slider>
@@ -131,7 +131,7 @@
                 During winter daily from <span class="span">7:00 pm</span> to <span class="span">9:00 pm</span>
             </p>
 
-            <a href="#" class="btn btn-primary">
+            <a href="@ViewBag.meta/Dessert/" class="btn btn-primary">
                 <span class="text text-1">View All Menu</span>
 
                 <span class="text text-2" aria-hidden="true">View All Menu</span>

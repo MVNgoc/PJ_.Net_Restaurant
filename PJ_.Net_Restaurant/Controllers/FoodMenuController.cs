@@ -1,6 +1,7 @@
 ﻿using PJ_.Net_Restaurant.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,8 +12,9 @@ namespace PJ_.Net_Restaurant.Controllers
     {
         RestaurantEntities db = new RestaurantEntities();
         // GET: FoodMenu
-        public ActionResult Index(string meta)
+        public ActionResult Index(string meta, string type)
         {
+            ViewBag.Type = type;
             var v = from t in db.FoodStyles
                     where t.meta == meta
                     select t;

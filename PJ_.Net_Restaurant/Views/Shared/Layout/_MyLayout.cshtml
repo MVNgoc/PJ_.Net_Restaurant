@@ -60,7 +60,6 @@
     
     <div class="topbar">
         <div class="container">
-            
             @{ Html.RenderAction("getHeader", "Partial");} 
 
             <div class="separator"></div>
@@ -97,11 +96,9 @@
 
                 @{ Html.RenderAction("getLogo", "Partial");}
 
-                <ul class="navbar-list">
-
-                    @{ Html.RenderAction("getNavBar", "Partial");} 
-
-                </ul>
+            <ul class="navbar-list">
+                @Html.Action("getNavBar", "Partial", new { type = @ViewBag.type })
+            </ul>
 
                 <div class="text-center">
                     @{ Html.RenderAction("getVisitUs", "Partial");}
