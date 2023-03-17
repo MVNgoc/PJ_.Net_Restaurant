@@ -13,9 +13,8 @@ namespace PJ_.Net_Restaurant.Controllers
         RestaurantEntities db = new RestaurantEntities();
 
         // GET: Default
-        public ActionResult Index(string type)
+        public ActionResult Index()
         {
-            ViewBag.type = type;
             ViewBag.meta = "Food-Menu";
             return View();
         }

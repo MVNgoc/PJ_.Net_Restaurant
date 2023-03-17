@@ -2717,3 +2717,138 @@ textarea.input-field {
 
 
 /* End css dialog */
+
+/*-----------------------------------*\
+  #BILL
+\*-----------------------------------*/
+.bill-box {
+    background: rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0px 0px 17px 2px var(--gold-crayola);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: var(--fontFamily-dm_sans);
+}
+
+    .bill-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+
+        .bill-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .bill-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .bill-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .bill-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .bill-box table tr.heading td {
+            background: var(--gold-crayola);
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+            color: var(--black);
+        }
+
+        .bill-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .bill-box table tr.item td {
+            border-bottom: 1px solid #eee;
+        }
+
+@media only screen and (max-width:600px) {
+
+    .bill-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .bill-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}
+
+/*-----------------------------------*\
+  #BILL HISTORY
+\*-----------------------------------*/
+.table-list {
+    margin-top: 50px;
+    height: 100%;
+    padding: 10px;
+}
+
+.table-list-tb {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.table-list-th {
+    border: 1px solid var(--black);
+    text-align: center;
+    padding: 10px;
+    background-color: var(--gold-crayola);
+    color: var(--black);
+}
+
+.table-list-td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+
+.table-list-tr:hover {
+    color: var(--gold-crayola);
+}
+
+.container-list {
+    overflow: auto;
+}
+
+/*-----------------------------------*\
+  #SHOPPING CART
+\*-----------------------------------*/
+.table-list-td img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-qty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+    .product-qty input {
+        color: white;
+        width: fit-content;
+        border: 1px solid var(--gold-crayola);
+        text-align: center;
+    }
+
+.cartForm .cartBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

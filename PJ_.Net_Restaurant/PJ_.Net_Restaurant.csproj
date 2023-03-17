@@ -135,10 +135,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BillController.cs" />
+    <Compile Include="Controllers\BillHistoryController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\FoodMenuController.cs" />
     <Compile Include="Controllers\PublicController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\ShopCartController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -312,6 +316,13 @@
     <Content Include="Views\Shared\Layout\_PublicLayout.cshtml" />
     <Content Include="Views\Public\Index.cshtml" />
     <Content Include="Views\Public\Register.cshtml" />
+    <Content Include="Views\Bill\Index.cshtml" />
+    <Content Include="Views\BillHistory\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\ShopCart\Index.cshtml" />
+    <Content Include="Views\User\ChangePass.cshtml" />
+    <Content Include="Views\Public\ForgotPass.cshtml" />
+    <Content Include="Views\Public\ResetPass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

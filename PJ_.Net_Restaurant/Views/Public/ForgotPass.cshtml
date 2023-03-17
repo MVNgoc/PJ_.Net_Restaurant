@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "ForgotPass";
+    Layout = "~/Views/Shared/Layout/_PublicLayout.cshtml";
+}
+
+<div id="wrapper" class="wrapper">
+    <form class="form-login" id="form-login" onsubmit="return validateInput()" action="" method="post">
+        <h1 class="form-heading">Forgot password</h1>
+        <div class="form-group form-group-login">
+            <i class="fa-regular fa-envelope"></i>
+            <input value="" type="text" class="form-input form-input-login" id="email" placeholder="Enter email" name="email">
+        </div>
+        <div class="errorMessage my-3" id="message"></div>
+        <button class="form-submit" type="submit" class="btn btn-default">
+            <a href="">Send email</a>
+        </button>
+    </form>
+</div>
+

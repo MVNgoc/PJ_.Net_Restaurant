@@ -37,6 +37,12 @@
     <link rel="preload" as="image" href="~/Uploads/images/hero-slider-2.jpg">
     <link rel="preload" as="image" href="~/Uploads/images/hero-slider-3.jpg">
 
+    <link rel="shortcut icon" href="~/Uploads/images/favicon.svg" type="image/svg+xml">
+@*    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 
 <body id="top">
@@ -60,16 +66,20 @@
     
     <div class="topbar">
         <div class="container">
-            @{ Html.RenderAction("getHeader", "Partial");} 
+            @{ Html.RenderAction("getHeader", "Partial");}
 
             <div class="separator"></div>
 
-            <a href="mailto:booking@restaurant.com" class="topbar-item link">
-                <div class="icon">
-                    <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-                </div>
+            <a href="/User" class="topbar-item link">
+                <span class="span">Mai Ngọc</span>
+            </a>
 
-                <span class="span">booking@restaurant.com</span>
+            <div class="separator"></div>
+
+            <a href="/ShopCart" class="topbar-item link login-btn">
+                <div class="icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
             </a>
 
         </div>
@@ -97,7 +107,7 @@
                 @{ Html.RenderAction("getLogo", "Partial");}
 
             <ul class="navbar-list">
-                @Html.Action("getNavBar", "Partial", new { type = @ViewBag.type })
+                @{ Html.RenderAction("getNavBar", "Partial");}
             </ul>
 
                 <div class="text-center">

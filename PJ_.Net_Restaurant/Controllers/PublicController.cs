@@ -19,5 +19,15 @@ namespace PJ_.Net_Restaurant.Controllers
         {
             return View();
         }
+
+        public ActionResult ForgotPass()
+        {
+            return View();
+        }
+
+        public ActionResult ResetPass()
+        {
+            return View();
+        }
     }
 }

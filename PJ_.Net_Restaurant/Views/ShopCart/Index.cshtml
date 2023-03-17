@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout/_PublicLayout.cshtml";
+}
+
+<form action="" class="cartForm">
+    <div class="table-list" id="list-bill">
+        <div class="container container-list my-3">
+            <table class="table-list-tb">
+                <tr class="table-list-tr">
+                    <th class="table-list-th">Num</th>
+                    <th class="table-list-th">Item</th>
+                    <th class="table-list-th">Date</th>
+                    <th class="table-list-th">Price</th>
+                    <th class="table-list-th">Quantity</th>
+                </tr>
+                <tr class="table-list-tr">
+                    <td class="table-list-td">1</td>
+                    <td class="table-list-td">
+                        <img src="/assets/images/menu-1.png" alt="">
+                    </td>
+                    <td class="table-list-td">17/3/2023</td>
+                    <td class="table-list-td">$1500</td>
+                    <td class="table-list-td">
+                        <div class="product-qty">
+                            <input type="number" value="1">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="table-list-tr">
+                    <td class="table-list-td">2</td>
+                    <td class="table-list-td">
+                        <img src="/assets/images/menu-2.png" alt="">
+                    </td>
+                    <td class="table-list-td">17/3/2023</td>
+                    <td class="table-list-td">$1500</td>
+                    <td class="table-list-td">
+                        <div class="product-qty">
+                            <input type="number" value="1">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="table-list-tr">
+                    <th class="table-list-th">Num</th>
+                    <th class="table-list-th">Time</th>
+                    <th class="table-list-th">Date</th>
+                    <th class="table-list-th">Price</th>
+                    <th class="table-list-th">Table</th>
+                </tr>
+                <tr class="table-list-tr">
+                    <td class="table-list-td">1</td>
+                    <td class="table-list-td">
+                        6:44 PM
+                    </td>
+                    <td class="table-list-td">17/3/2023</td>
+                    <td class="table-list-td" id="table-total">$100</td>
+                    <td class="table-list-td">
+                        <div class="product-qty">
+                            <input type="number" value="1">
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div class="cartBtn">
+        <button type="submit">
+            <a href="#" class="btn btn-secondary">
+                <span class="text text-1">Apply</span>
+
+                <span class="text text-2" aria-hidden="true">Apply</span>
+            </a>
+        </button>
+    </div>
+</form>
+

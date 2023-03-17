@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "ResetPass";
+    Layout = "~/Views/Shared/Layout/_PublicLayout.cshtml";
+}
+
+<div id="wrapper" class="wrapper">
+    <form class="form-login" id="form-login" onsubmit="return validateInput()" action="" method="post">
+        <h1 class="form-heading">Change password</h1>
+        <div class="form-group form-group-login">
+            <i class="fas fa-key"></i>
+            <input value="" type="text" class="form-input form-input-login" id="npwd" placeholder="Enter password" name="npwd">
+        </div>
+
+        <div class="form-group form-group-login">
+            <i class="fas fa-key"></i>
+            <input value="" type="password" class="form-input form-input-login" id="cnpwd" placeholder="Enter new password" name="cnpwd">
+            <div id="eye">
+                <i class="far fa-eye"></i>
+            </div>
+        </div>
+        <div class="errorMessage my-3" id="message"></div>
+        <button class="form-submit" type="submit" class="btn btn-default">
+            <a href="/Login">Login now</a>
+        </button>
+    </form>
+</div>
+

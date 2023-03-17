@@ -3,7 +3,7 @@
 @foreach (var i in Model)
             {
                 <li class="navbar-item">
-                    <a href="@(i.meta == ViewBag.type ? "#" : $"../../{i.meta}/")" class="navbar-link hover-underline">
+                    <a href="/@i.meta" class="navbar-link hover-underline">
                         <div class="separator"></div>
                         <span class="span">@i.name</span>
                     </a>
