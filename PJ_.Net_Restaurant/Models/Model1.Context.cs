@@ -36,5 +36,9 @@ namespace PJ_.Net_Restaurant.Models
         public virtual DbSet<Banner> Banners { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<FoodStyle> FoodStyles { get; set; }
+        public virtual DbSet<Background> Backgrounds { get; set; }
+        public virtual DbSet<Bill> Bills { get; set; }
+        public virtual DbSet<ShopCart> ShopCarts { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="RestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Background">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="namepage" Type="nvarchar" MaxLength="50" />
+    <Property Name="img" Type="nvarchar" MaxLength="100" />
+    <Property Name="meta" Type="nvarchar" MaxLength="50" />
+    <Property Name="hide" Type="bit" />
+    <Property Name="order" Type="int" />
+    <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
   <EntityType Name="Banner">
     <Key>
       <PropertyRef Name="id" />
@@ -10,6 +22,24 @@
     <Property Name="title" Type="nvarchar" MaxLength="100" />
     <Property Name="content" Type="nvarchar" MaxLength="200" />
     <Property Name="link" Type="nvarchar(max)" />
+    <Property Name="meta" Type="nvarchar" MaxLength="50" />
+    <Property Name="hide" Type="bit" />
+    <Property Name="order" Type="int" />
+    <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar(max)" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="foodname" Type="nvarchar" MaxLength="50" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="price" Type="float" />
+    <Property Name="total" Type="float" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />
     <Property Name="order" Type="int" />
@@ -112,6 +142,21 @@
     <Property Name="order" Type="int" />
     <Property Name="datebegin" Type="smalldatetime" />
   </EntityType>
+  <EntityType Name="ShopCart">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="foodname" Type="nvarchar" MaxLength="50" />
+    <Property Name="quantityfood" Type="int" />
+    <Property Name="foodprice" Type="float" />
+    <Property Name="quantitytable" Type="int" />
+    <Property Name="tableprice" Type="float" />
+    <Property Name="meta" Type="nvarchar" MaxLength="50" />
+    <Property Name="hide" Type="bit" />
+    <Property Name="order" Type="int" />
+    <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
   <EntityType Name="Social">
     <Key>
       <PropertyRef Name="id" />
@@ -156,8 +201,26 @@
     <Property Name="order" Type="int" />
     <Property Name="datebegin" Type="smalldatetime" />
   </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar(max)" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="meta" Type="nvarchar" MaxLength="50" />
+    <Property Name="hide" Type="bit" />
+    <Property Name="order" Type="int" />
+    <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
   <EntityContainer Name="RestaurantModelStoreContainer">
+    <EntitySet Name="Background" EntityType="Self.Background" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FoodStyle" EntityType="Self.FoodStyle" Schema="dbo" store:Type="Tables" />
@@ -165,8 +228,10 @@
     <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OurStrength" EntityType="Self.OurStrength" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShopCart" EntityType="Self.ShopCart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Social" EntityType="Self.Social" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Story" EntityType="Self.Story" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UpcomingEvent" EntityType="Self.UpcomingEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
