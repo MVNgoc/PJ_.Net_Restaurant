@@ -760,14 +760,7 @@ body.nav-active {
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
-.header-other {
-    width: 100%;
-    background-color: transparent;
-    padding-block: 40px;
-    z-index: 4;
-    border-block-end: 1px solid transparent;
-    transition: var(--transition-1);
-}
+
 
     .header-other .container {
         padding-inline: 20px;
@@ -811,6 +804,17 @@ body.nav-active {
         align-items: center;
         gap: 8px;
     }
+
+.header-other {
+    width: 100%;
+    background-color: transparent;
+    padding-block: 40px;
+    z-index: 4;
+    border-block-end: 1px solid transparent;
+    transition: var(--transition-1);
+    position: static;
+    margin-bottom: 50px;
+}
 
 .nav-open-btn {
     padding: 12px;
@@ -1427,7 +1431,28 @@ body.nav-active {
         max-width: max-content;
     }
 
-    .pagination a li {
+    /* .pagination li a {
+  margin: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--gold-crayola);
+  border: 1px solid;
+}
+
+.pagination ul li:hover a {
+  color: var(--white);
+  border-color: var(--gold-crayola);
+  transition: var(--transition-1);
+}
+
+.pagination ul li.active a {
+  background-color: var(--gold-crayola);
+  color: var(--black);
+  border-color: var(--gold-crayola);
+  font-weight: var(--weight-bold);
+} */
+
+    .pagination li {
         margin: 0.25rem;
         padding: 0.75rem 1rem;
         border-radius: 0.5rem;
@@ -1435,13 +1460,13 @@ body.nav-active {
         border: 1px solid;
     }
 
-    .pagination ul a:hover li {
+    .pagination ul li:hover {
         color: var(--white);
         border-color: var(--gold-crayola);
         transition: var(--transition-1);
     }
 
-    .pagination ul a.active li {
+    .pagination ul li.active {
         background-color: var(--gold-crayola);
         color: var(--black);
         border-color: var(--gold-crayola);
@@ -1912,7 +1937,9 @@ textarea.input-field {
         }
 
 
-
+    .semi-topbar {
+        position: static;
+    }
     /**
    * HEADER
    */

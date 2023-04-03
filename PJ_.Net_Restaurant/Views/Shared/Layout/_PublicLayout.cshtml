@@ -60,17 +60,74 @@
 
 
     <!--
+      - #TOP BAR
+    -->
+
+    <div class="topbar semi-topbar">
+        <div class="container">
+            @{ Html.RenderAction("getHeader", "Partial");}
+
+            <div class="separator"></div>
+
+            <a href="/User" class="topbar-item link">
+                <span class="span">Mai Ngọc</span>
+            </a>
+
+            <div class="separator"></div>
+
+            <a href="/ShopCart" class="topbar-item link login-btn">
+                <div class="icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--
       - #HEADER
     -->
 
-    <header class="header-other" data-header>
+    <header class="header header-other" data-header>
         <div class="container">
 
-            <a href="@Url.Action("Index", "Default")" class="logo">
-                <img src="~/Uploads/images/logo.svg" width="160" height="50" alt="Grilli - Home">
+            @{ Html.RenderAction("getLogo", "Partial");}
+
+            <nav class="navbar" data-navbar>
+
+                <button class="close-btn" aria-label="close menu" data-nav-toggler>
+                    <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+                </button>
+
+                @{ Html.RenderAction("getLogo", "Partial");}
+
+                <ul class="navbar-list">
+                    @{ Html.RenderAction("getNavBar", "Partial");}
+                </ul>
+
+                <div class="text-center">
+                    @{ Html.RenderAction("getVisitUs", "Partial");}
+                </div>
+
+            </nav>
+
+            <a href="#" class="btn btn-secondary">
+                <span class="text text-1">Find A Table</span>
+
+                <span class="text text-2" aria-hidden="true">Find A Table</span>
             </a>
 
+            <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+                <span class="line line-1"></span>
+                <span class="line line-2"></span>
+                <span class="line line-3"></span>
+            </button>
 
+            <div class="overlay" data-nav-toggler data-overlay></div>
 
         </div>
     </header>

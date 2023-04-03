@@ -35,9 +35,8 @@
 
     <section class="section menu" aria-label="menu-label" id="menu">
         <div class="container">
-
             <div class="pagination select-kind-menu">
-                <ul>
+                <ul class="">
                     @Html.Action("getFoodsStyleBar", "FoodMenu", new { name = Model.name })
                 </ul>
             </div>
@@ -47,7 +46,6 @@
 
             <ul class="grid-list">
                 @Html.Action("getFoods", "FoodMenu", new { name = Model.name })
-
             </ul>
 
             <p class="menu-text text-center">
@@ -55,28 +53,14 @@
             </p>
 
             <div class="pagination">
-                <ul>
-                    <a href="">
+                <ul class="list-page">
                     <li>Previous</li>
-                    </a>
-                    <a href="">
                     <li>Next</li>
-                    </a>
-                    <a href="" class="active">
                     <li>1</li>
-                    </a>
-                    <a href="">
                     <li>2</li>
-                    </a>
-                    <a href="">
                     <li>3</li>
-                    </a>
-                    <a href="">
                     <li>...</li>
-                    </a>
-                    <a href="">
                     <li>99</li>
-                    </a>
                 </ul>
             </div>
 
