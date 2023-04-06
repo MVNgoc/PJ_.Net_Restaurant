@@ -44,7 +44,7 @@
             <p class="section-subtitle text-center label-2">Menu</p>
             <h2 class="headline-1 section-title text-center">@Model.name Menu</h2>
 
-            <ul class="grid-list">
+            <ul class="grid-list" id="grid-list-menu">
                 @Html.Action("getFoods", "FoodMenu", new { name = Model.name })
             </ul>
 
