@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="RestaurantModel.Banner" Width="1.5" PointX="6.125" PointY="4.75" />
         <EntityTypeShape EntityType="RestaurantModel.Food" Width="1.5" PointX="2.375" PointY="4.75" />
         <EntityTypeShape EntityType="RestaurantModel.FoodStyle" Width="1.5" PointX="6.375" PointY="0.75" />
-        <EntityTypeShape EntityType="RestaurantModel.Background" Width="1.5" PointX="12.125" PointY="0.75" />
+        <EntityTypeShape EntityType="RestaurantModel.Background" Width="1.5" PointX="12.125" PointY="8.25" />
         <EntityTypeShape EntityType="RestaurantModel.Bill" Width="1.5" PointX="8.125" PointY="4.75" />
         <EntityTypeShape EntityType="RestaurantModel.ShopCart" Width="1.5" PointX="10.125" PointY="4.75" />
         <EntityTypeShape EntityType="RestaurantModel.User" Width="1.5" PointX="12.125" PointY="4.75" />
