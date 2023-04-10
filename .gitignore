@@ -2,3 +2,15 @@
 *.pdb
 *.dll
 PJ_.Net_Restaurant/Web.config
+.vs/PJ_.Net_Restaurant/config/applicationhost.config
+.vs/PJ_.Net_Restaurant/FileContentIndex/c06fea9e-7d25-4d0c-873f-bc82102d4657.vsidx
+.vs/PJ_.Net_Restaurant/v17/.suo
+PJ_.Net_Restaurant/bin/Microsoft.Data.Tools.Components.dll
+PJ_.Net_Restaurant/bin/PJ_.Net_Restaurant.dll
+PJ_.Net_Restaurant/bin/PJ_.Net_Restaurant.dll.config
+PJ_.Net_Restaurant/bin/PJ_.Net_Restaurant.pdb
+PJ_.Net_Restaurant/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+PJ_.Net_Restaurant/obj/Debug/PJ_.Net_Restaurant.csproj.AssemblyReference.cache
+PJ_.Net_Restaurant/obj/Debug/PJ_.Net_Restaurant.csproj.CoreCompileInputs.cache
+PJ_.Net_Restaurant/obj/Debug/PJ_.Net_Restaurant.dll
+PJ_.Net_Restaurant/obj/Debug/PJ_.Net_Restaurant.pdb
