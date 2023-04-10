@@ -58,6 +58,15 @@ namespace PJ_.Net_Restaurant
                 namespaces: new[] { "PJ_.Net_Restaurant.Controllers" }
             );
 
+            routes.MapRoute("logout", "{type}",
+                new { controller = "Public", action = "logout", id = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    {"type", "logout"}
+                },
+                namespaces: new[] { "PJ_.Net_Restaurant.Controllers" }
+            );
+
             routes.MapRoute("User", "{type}",
                 new { controller = "User", action = "Index", id = UrlParameter.Optional },
                 new RouteValueDictionary

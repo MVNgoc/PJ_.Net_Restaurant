@@ -160,6 +160,7 @@
     <Compile Include="Models\Bill.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangePass.cs" />
     <Compile Include="Models\Contact.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

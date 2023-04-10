@@ -70,9 +70,18 @@
 
             <div class="separator"></div>
 
-            <a href="/User" class="topbar-item link">
-                <span class="span">Mai Ngọc</span>
-            </a>
+            @if (Session["name"] != null)
+            {
+                <a href="/User" class="topbar-item link">
+                    <span class="span">@Session["name"]</span>
+                </a>
+            }
+            else
+            {
+                <a href="/User" class="topbar-item link">
+                    <span class="span">Guest</span>
+                </a>
+            }
 
             <div class="separator"></div>
 

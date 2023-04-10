@@ -1,27 +1,31 @@
-﻿
+﻿@model PJ_.Net_Restaurant.Models.User
+
 @{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/Layout/_PublicLayout.cshtml";
 }
 
 <div id="wrapper" class="wrapper">
-    <form class="form-login" id="form-login" onsubmit="return validateInput()" action="" method="post">
+    @using (Html.BeginForm("Register", "Public", FormMethod.Post, new { @class = "form-login", @id = "form-login", onsubmit = "return validateRegisterInput()" }))
+    {
+        @Html.AntiForgeryToken()
+
         <h1 class="form-heading">Register Form</h1>
         <div class="form-group form-group-login">
             <i class="far fa-user"></i>
-            <input value="" type="text" class="form-input form-input-login" id="name" placeholder="Enter your name" name="name">
+            @Html.TextBoxFor(model => model.name, new { @class = "form-input form-input-login", @id = "name", placeholder = "Enter your name", @name = "name" })
         </div>
         <div class="form-group form-group-login">
             <i class="fa-regular fa-address-card"></i>
-            <input value="" type="text" class="form-input form-input-login" id="address" placeholder="Enter address" name="address">
+            @Html.TextBoxFor(model => model.address, new { @class = "form-input form-input-login", @id = "address", placeholder = "Enter your address", @name = "address" })
         </div>
         <div class="form-group form-group-login">
             <i class="fa-regular fa-envelope"></i>
-            <input value="" type="text" class="form-input form-input-login" id="email" placeholder="Enter email" name="email">
+            @Html.TextBoxFor(model => model.email, new { @class = "form-input form-input-login", @id = "email", placeholder = "Enter email", @name = "email" })
         </div>
         <div class="form-group form-group-login">
             <i class="fas fa-key"></i>
-            <input value="" type="password" class="form-input form-input-login" id="pwd" placeholder="Enter password" name="pwd">
+            @Html.TextBoxFor(model => model.password, new { @class = "form-input form-input-login", @id = "pwd", placeholder = "Enter password", @name = "pwd" })
             <div id="eye">
                 <i class="far fa-eye"></i>
             </div>
@@ -31,8 +35,9 @@
             <i class="fas fa-key"></i>
             <input value="" type="password" class="form-input form-input-login" id="cpwd" placeholder="Confirm password" name="cpwd">
         </div>
-        <div class="errorMessage my-3" id="message"></div>
+
+        <div class="errorMessage my-3" id="message">@ViewData["error"]</div>
         <button class="form-submit" type="submit" class="btn btn-default">Register</button>
-    </form>
+    }
 </div>
 

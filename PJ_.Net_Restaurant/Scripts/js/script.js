@@ -27,6 +27,143 @@ const addEventOnElements = function (elements, eventType, callback) {
     }
 }
 
+/**
+ * USer ChangePass
+ */
+function validateUserChangePass() {
+    let passbox = document.getElementById("opwd")
+    let newpassbox = document.getElementById("npwd")
+    let newpasscfbox = document.getElementById("cnpwd")
+    let messageBox = document.getElementById("message")
+
+    let pass = passbox.value;
+    let newpass = newpassbox.value;
+    let newpasscf = newpasscfbox.value;
+
+    if (pass === "") {
+        messageBox.innerHTML = "Please enter your password";
+        passbox.focus();
+        return false;
+    } else if (newpass === "") {
+        messageBox.innerHTML = "Please enter your new password";
+        newpassbox.focus();
+        return false;
+    } else if (newpasscf === "") {
+        messageBox.innerHTML = "Please enter your new confirm password";
+        newpasscfbox.focus();
+        return false;
+    } else if (newpass.length < 6) {
+        messageBox.innerHTML = "Your password must contain at least 6 characters";
+        newpassbox.focus();
+        return false;
+    } else if (newpass != newpasscf) {
+        messageBox.innerHTML = "Your passwords do not match";
+        return false;
+    }
+    messageBox.innerHTML = "";
+    return true;
+}
+/**
+ * USer Info
+ */
+function validateUserInfo() {
+    let namebox = document.getElementById("name")
+    let addressBox = document.getElementById("address")
+    let emailBox = document.getElementById("email")
+    let messageBox = document.getElementById("message")
+
+
+    const validateEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    let name = namebox.value
+    let address = addressBox.value
+    let email = emailBox.value
+
+    if (name === "") {
+        messageBox.innerHTML = "Please enter your name";
+        nameBox.focus();
+        return false;
+    }
+    else if (address === "") {
+        messageBox.innerHTML = "Please enter your address";
+        addressBox.focus();
+        return false;
+    }
+    else if (email === "") {
+        messageBox.innerHTML = "Please enter your email";
+        emailBox.focus();
+        return false;
+    }
+    else if (validateEmail.test(email) !== true) {
+        messageBox.innerHTML = "Your email is not correct";
+        emailBox.focus();
+        return false;
+    }
+    messageBox.innerHTML = "";
+    return true;
+}
+
+
+/**
+ * REGISTER
+ */
+function validateRegisterInput() {
+    let emailBox = document.getElementById("email")
+    let passwordBox = document.getElementById("pwd")
+    let passwordcfBox = document.getElementById("cpwd")
+    let messageBox = document.getElementById("message")
+    let nameBox = document.getElementById("name")
+    let addressBox = document.getElementById("address")
+
+    const validateEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    let email = emailBox.value;
+    let password = passwordBox.value;
+    let name = nameBox.value;
+    let address = addressBox.value;
+    let passwordcf = passwordcfBox.value;
+
+    if (name === "") {
+        messageBox.innerHTML = "Please enter your name";
+        nameBox.focus();
+        return false;
+    }
+    else if (address === "") {
+        messageBox.innerHTML = "Please enter your address";
+        addressBox.focus();
+        return false;
+    }
+    else if (email === "") {
+        messageBox.innerHTML = "Please enter your email";
+        emailBox.focus();
+        return false;
+    }
+    else if (validateEmail.test(email) !== true) {
+        messageBox.innerHTML = "Your email is not correct";
+        emailBox.focus();
+        return false;
+    }
+    else if (password === "") {
+        messageBox.innerHTML = "Please enter your password";
+        passwordBox.focus();
+        return false;
+    }
+    else if (passwordcf === "") {
+        messageBox.innerHTML = "Please enter your confirm password";
+        passwordcfBox.focus();
+        return false;
+    }
+    else if (password.length < 6) {
+        messageBox.innerHTML = "Your password must contain at least 6 characters";
+        passwordBox.focus();
+        return false;
+    } else if (password != passwordcf) {
+        messageBox.innerHTML = "Your passwords do not match";
+        return false;
+    }
+    messageBox.innerHTML = "";
+    return true;
+}
 
 /**
  * LOGIN
@@ -78,6 +215,7 @@ window.onload = function () {
 function showEye() {
 
     const temp = document.getElementById('pwd')
+
     if (temp.type === "password") {
         temp.type = "text"
     } else {
@@ -85,6 +223,30 @@ function showEye() {
     }
 }
 
+/**
+ * ForgotPass
+ */
+
+function validateEmail() {
+    let emailBox = document.getElementById("email")
+    let messageBox = document.getElementById("message")
+    const validateEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    let email = emailBox.value;
+
+    if (email === "") {
+        messageBox.innerHTML = "Please enter your email";
+        emailBox.focus();
+        return false;
+    }
+    else if (validateEmail.test(email) !== true) {
+        messageBox.innerHTML = "Your email is not correct";
+        emailBox.focus();
+        return false;
+    }
+    messageBox.innerHTML = "";
+    return true;
+}
 
 
 /**
@@ -231,7 +393,7 @@ window.addEventListener("mousemove", function (event) {
 /**
  * PRODUCT
  */
-window.onload=function product() {
+window.onload = function product() {
     let preveiwContainer = document.querySelector('.products-preview');
     let previewBox = preveiwContainer.querySelectorAll('.preview');
 
