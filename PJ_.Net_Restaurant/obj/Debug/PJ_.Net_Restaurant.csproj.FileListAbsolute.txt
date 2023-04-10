@@ -325,8 +325,8 @@ C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Syst
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Newtonsoft.Json.xml
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Antlr3.Runtime.pdb
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.csproj.AssemblyReference.cache
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.csproj.CopyComplete
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.dll
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.pdb
+C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.csproj.AssemblyReference.cache

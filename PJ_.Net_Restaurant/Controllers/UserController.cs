@@ -18,12 +18,9 @@ namespace PJ_.Net_Restaurant.Controllers
         public ActionResult Index()
         {
             var s = Session["idUser"];
-            var user = db.Users.Find(s);
-            Session["email"] = user.email;
-            Session["name"] = user.name;
-            Session["address"] = user.address;
-            Session["password"] = user.password;
-            return View();
+            User user = db.Users.Find(s);
+            
+            return View(user);
         }
 
         // POST: User
@@ -31,9 +28,10 @@ namespace PJ_.Net_Restaurant.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(User _user)
         {
+            User user = getById(_user.id);
+
             if (ModelState.IsValid)
             {
-                var user = db.Users.Find(_user.id);
                 user.name = _user.name;
                 user.address = _user.address;
 
@@ -66,6 +64,12 @@ namespace PJ_.Net_Restaurant.Controllers
                 }
             }
             return View();
+        }
+
+        public User getById(int id)
+        {
+            return db.Users.Where(x => x.id == id).FirstOrDefault();
+
         }
 
         //GET: ChangePass
