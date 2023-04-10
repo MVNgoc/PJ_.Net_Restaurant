@@ -311,6 +311,7 @@ const heroSliderNextBtn = document.querySelector("[data-next-btn]");
 
 let currentSlidePos = 0;
 let lastActiveSliderItem = heroSliderItems[0];
+lastActiveSliderItem.classList.add("active");
 
 const updateSliderPos = function () {
     lastActiveSliderItem.classList.remove("active");
