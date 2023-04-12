@@ -118,6 +118,15 @@ namespace PJ_.Net_Restaurant.Controllers
             if (ModelState.IsValid)
             {
                 var check = db.Users.FirstOrDefault(s => s.email == email);
+                if(check == null)
+                {
+                    ViewData["error"] = "Email is not exists";
+                    return View();
+                }else
+                {
+                    ViewData["error"] = "We have sent an email on your registered email";
+                    return View();
+                }
             }
 
             return View();

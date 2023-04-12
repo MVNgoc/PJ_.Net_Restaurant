@@ -17,7 +17,7 @@
             @Html.TextBoxFor(model => model.email, new { @class = "form-input form-input-login", @id = "email", placeholder = "Enter email", @name = "email" })
         </div>
 
-        <div class="errorMessage my-3" id="message"></div>
+        <div class="errorMessage my-3" id="message">@ViewData["error"]</div>
 
         <button class="form-submit" type="submit" class="btn btn-default">
             Send email
