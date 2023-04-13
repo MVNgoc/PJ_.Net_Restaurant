@@ -219,6 +219,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="RestaurantModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="token" ColumnName="token" />
           <ScalarProperty Name="datebegin" ColumnName="datebegin" />
           <ScalarProperty Name="order" ColumnName="order" />
           <ScalarProperty Name="hide" ColumnName="hide" />

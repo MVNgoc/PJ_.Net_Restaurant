@@ -212,6 +212,7 @@
     <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
     <Property Name="address" Type="nvarchar(max)" />
     <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="token" Type="varchar" MaxLength="50" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />
     <Property Name="order" Type="int" />

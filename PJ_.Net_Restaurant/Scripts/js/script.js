@@ -28,6 +28,38 @@ const addEventOnElements = function (elements, eventType, callback) {
 }
 
 /**
+ * USer ResetPass
+ */
+
+function validateResetPass() {
+    let newpassbox = document.getElementById("pwd")
+    let newpasscfbox = document.getElementById("cnpwd")
+    let messageBox = document.getElementById("message")
+
+    let newpass = newpassbox.value;
+    let newpasscf = newpasscfbox.value;
+
+    if (newpass === "") {
+        messageBox.innerHTML = "Please enter your new password";
+        passbox.focus();
+        return false;
+    } else if (newpasscf === "") {
+        messageBox.innerHTML = "Please enter your new confirm password";
+        newpasscfbox.focus();
+        return false;
+    } else if (newpass.length < 6) {
+        messageBox.innerHTML = "Your password must contain at least 6 characters";
+        newpassbox.focus();
+        return false;
+    } else if (newpass != newpasscf) {
+        messageBox.innerHTML = "Your passwords do not match";
+        return false;
+    }
+    messageBox.innerHTML = "";
+    return true;
+}
+
+/**
  * USer ChangePass
  */
 function validateUserChangePass() {
