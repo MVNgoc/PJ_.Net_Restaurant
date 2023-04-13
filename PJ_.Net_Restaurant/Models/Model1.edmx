@@ -147,6 +147,22 @@
           <Property Name="order" Type="int" />
           <Property Name="datebegin" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
+          <Property Name="numpersons" Type="int" />
+          <Property Name="reservationday" Type="date" />
+          <Property Name="reservatiotime" Type="time" Precision="7" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
         <EntityType Name="ShopCart">
           <Key>
             <PropertyRef Name="id" />
@@ -234,6 +250,7 @@
           <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OurStrength" EntityType="Self.OurStrength" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShopCart" EntityType="Self.ShopCart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Social" EntityType="Self.Social" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Story" EntityType="Self.Story" Schema="dbo" store:Type="Tables" />
@@ -272,6 +289,7 @@
           <EntitySet Name="Bills" EntityType="RestaurantModel.Bill" />
           <EntitySet Name="ShopCarts" EntityType="RestaurantModel.ShopCart" />
           <EntitySet Name="Users" EntityType="RestaurantModel.User" />
+          <EntitySet Name="Reservations" EntityType="RestaurantModel.Reservation" />
         </EntityContainer>
         <EntityType Name="Logo">
           <Key>
@@ -478,6 +496,22 @@
           <Property Name="order" Type="Int32" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
           <Property Name="token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phonenum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numpersons" Type="Int32" />
+          <Property Name="reservationday" Type="DateTime" Precision="0" />
+          <Property Name="reservatiotime" Type="Time" Precision="7" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -714,6 +748,23 @@
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="RestaurantModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="reservatiotime" ColumnName="reservatiotime" />
+                <ScalarProperty Name="reservationday" ColumnName="reservationday" />
+                <ScalarProperty Name="numpersons" ColumnName="numpersons" />
+                <ScalarProperty Name="phonenum" ColumnName="phonenum" />
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
