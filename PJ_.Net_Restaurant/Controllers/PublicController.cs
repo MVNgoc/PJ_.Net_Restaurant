@@ -20,6 +20,10 @@ namespace PJ_.Net_Restaurant.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            if(Session["idUser"] != null)
+            {
+                return RedirectToRoute(new { Controller = "Default", action = "Index" });
+            }
             return View();
         }
 
@@ -55,6 +59,10 @@ namespace PJ_.Net_Restaurant.Controllers
         //GET: Register
         public ActionResult Register()
         {
+            if (Session["idUser"] != null)
+            {
+                return RedirectToRoute(new { Controller = "Default", action = "Index" });
+            }
             return View();
         }
 
@@ -109,6 +117,10 @@ namespace PJ_.Net_Restaurant.Controllers
         //GET: Forgotpass
         public ActionResult ForgotPass()
         {
+            if (Session["idUser"] != null)
+            {
+                return RedirectToRoute(new { Controller = "Default", action = "Index" });
+            }
             return View();
         }
 
