@@ -139,6 +139,7 @@
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\admin\Controllers\FoodsController.cs" />
     <Compile Include="Areas\admin\Controllers\menusController.cs" />
     <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\BillHistoryController.cs" />
@@ -196,9 +197,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OurStrength.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Reservation.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShopCart.cs">
@@ -3564,6 +3562,11 @@
     <Content Include="Areas\admin\Views\Banners\Details.cshtml" />
     <Content Include="Areas\admin\Views\Banners\Edit.cshtml" />
     <Content Include="Areas\admin\Views\Banners\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Foods\Create.cshtml" />
+    <Content Include="Areas\admin\Views\Foods\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\Foods\Details.cshtml" />
+    <Content Include="Areas\admin\Views\Foods\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\Foods\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\js\jquery-3.4.1.min.js" />

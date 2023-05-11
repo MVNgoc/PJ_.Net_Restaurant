@@ -142,6 +142,20 @@
     <Property Name="order" Type="int" />
     <Property Name="datebegin" Type="smalldatetime" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Restaurant.dbo.Reservation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Reservation">
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
+          <Property Name="numpersons" Type="int" />
+          <Property Name="reservationday" Type="date" />
+          <Property Name="reservatiotime" Type="time" Precision="7" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>-->
   <EntityType Name="ShopCart">
     <Key>
       <PropertyRef Name="id" />
@@ -212,7 +226,7 @@
     <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
     <Property Name="address" Type="nvarchar(max)" />
     <Property Name="email" Type="varchar" MaxLength="50" />
-    <Property Name="token" Type="varchar" MaxLength="50" />
+    <Property Name="token" Type="varchar" MaxLength="255" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />
     <Property Name="order" Type="int" />
