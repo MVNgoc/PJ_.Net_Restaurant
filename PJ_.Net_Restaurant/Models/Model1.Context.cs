@@ -40,5 +40,6 @@ namespace PJ_.Net_Restaurant.Models
         public virtual DbSet<Bill> Bills { get; set; }
         public virtual DbSet<ShopCart> ShopCarts { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
     }
 }

@@ -78,6 +78,7 @@ namespace PJ_.Net_Restaurant.Controllers
                 {
                     _user.password = GetMD5(_user.password);
                     db.Configuration.ValidateOnSaveEnabled = false;
+                    _user.Role = "User";
                     db.Users.Add(_user);
                     db.SaveChanges();
                     _user = null;

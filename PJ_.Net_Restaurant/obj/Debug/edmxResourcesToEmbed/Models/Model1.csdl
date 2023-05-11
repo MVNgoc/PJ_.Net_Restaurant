@@ -28,6 +28,7 @@
     <EntitySet Name="Bills" EntityType="RestaurantModel.Bill" />
     <EntitySet Name="ShopCarts" EntityType="RestaurantModel.ShopCart" />
     <EntitySet Name="Users" EntityType="RestaurantModel.User" />
+    <EntitySet Name="Reservations" EntityType="RestaurantModel.Reservation" />
   </EntityContainer>
   <EntityType Name="Logo">
     <Key>
@@ -234,5 +235,22 @@
     <Property Name="order" Type="Int32" />
     <Property Name="datebegin" Type="DateTime" Precision="0" />
     <Property Name="token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phonenum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="numpersons" Type="Int32" />
+    <Property Name="reservationday" Type="DateTime" Precision="0" />
+    <Property Name="reservatiotime" Type="Time" Precision="7" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
   </EntityType>
 </Schema>
