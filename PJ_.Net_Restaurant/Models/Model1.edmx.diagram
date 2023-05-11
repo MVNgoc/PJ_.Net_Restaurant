@@ -19,7 +19,7 @@
         <EntityTypeShape EntityType="RestaurantModel.Background" Width="1.5" PointX="7.25" PointY="8.75" />
         <EntityTypeShape EntityType="RestaurantModel.Bill" Width="1.5" PointX="8.375" PointY="4.75" />
         <EntityTypeShape EntityType="RestaurantModel.ShopCart" Width="1.5" PointX="10.25" PointY="4.75" />
-        <EntityTypeShape EntityType="RestaurantModel.User" Width="1.5" PointX="12.375" PointY="4.75" />
+        <EntityTypeShape EntityType="RestaurantModel.User" Width="1.5" PointX="3.375" PointY="9.75" />
         <EntityTypeShape EntityType="RestaurantModel.Reservation" Width="1.5" PointX="0.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>

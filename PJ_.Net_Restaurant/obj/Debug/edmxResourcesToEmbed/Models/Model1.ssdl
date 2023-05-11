@@ -222,12 +222,11 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="password" Type="nvarchar" MaxLength="50" />
     <Property Name="name" Type="nvarchar" MaxLength="50" />
     <Property Name="phonenum" Type="nvarchar" MaxLength="50" />
     <Property Name="address" Type="nvarchar(max)" />
-    <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="token" Type="varchar" MaxLength="255" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />

@@ -220,17 +220,16 @@
       <EntityTypeMapping TypeName="RestaurantModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Role" ColumnName="Role" />
-          <ScalarProperty Name="token" ColumnName="token" />
           <ScalarProperty Name="datebegin" ColumnName="datebegin" />
           <ScalarProperty Name="order" ColumnName="order" />
           <ScalarProperty Name="hide" ColumnName="hide" />
           <ScalarProperty Name="meta" ColumnName="meta" />
-          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="token" ColumnName="token" />
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="phonenum" ColumnName="phonenum" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
