@@ -34,6 +34,7 @@ namespace PJ_.Net_Restaurant.Controllers
             {
                 user.name = _user.name;
                 user.address = _user.address;
+                user.phonenum = _user.phonenum;
 
                 if (user.email != _user.email)
                 {

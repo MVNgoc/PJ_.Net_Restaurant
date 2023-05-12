@@ -16,12 +16,17 @@
 
         <div class="form-group form-group-login">
             <i class="far fa-user"></i>
-            @Html.TextBoxFor(model => model.name, new { @class = "form-input form-input-login", @id = "name", @name = "name"})
+            @Html.TextBoxFor(model => model.name, new { @class = "form-input form-input-login", @id = "name", @name = "name" })
         </div>
 
         <div class="form-group form-group-login">
             <i class="fa-regular fa-address-card"></i>
             @Html.TextBoxFor(model => model.address, new { @class = "form-input form-input-login", @id = "address", @name = "address" })
+        </div>
+
+        <div class="form-group form-group-login">
+            <i class="fa-solid fa-phone"></i>
+            @Html.TextBoxFor(model => model.phonenum, new { @class = "form-input form-input-login", @id = "phonenum", @name = "phonenum" })
         </div>
 
         <div class="form-group form-group-login">
