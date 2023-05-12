@@ -16,6 +16,16 @@ namespace PJ_.Net_Restaurant.Controllers
         public ActionResult Index()
         {
             ViewBag.meta = "Food-Menu";
+            var v = (from t in db.UpcomingEvents
+                     where t.hide == true
+                     orderby t.order ascending
+                     select t).Take(3);
+            int count = v.Count();
+            if(count == 0)
+            {
+                ViewBag.eventCount = "Nothing";
+            }
+
             return View();
         }
 

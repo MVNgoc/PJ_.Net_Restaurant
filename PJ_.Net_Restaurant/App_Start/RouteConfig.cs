@@ -112,6 +112,15 @@ namespace PJ_.Net_Restaurant
                 namespaces: new[] { "PJ_.Net_Restaurant.Controllers" }
             );
 
+            routes.MapRoute("Event", "{type}/{meta}",
+                new { controller = "Event", action = "Index", id = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    {"type", "event"}
+                },
+                namespaces: new[] { "PJ_.Net_Restaurant.Controllers" }
+            );
+
             routes.MapRoute(
                 name: "Home",
                 url: "{controller}/{action}/{id}",

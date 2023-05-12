@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Event";
+    Layout = "~/Views/Shared/Layout/_MyLayout.cshtml";
+}
+
+<article style="display:flex; justify-content:center">
+    <div id="container" style="width: 50%; margin-top: 140px;">
+        @Html.Raw(Model.description)
+    </div>
+</article>
