@@ -16,9 +16,10 @@ namespace PJ_.Net_Restaurant.Models
     {
         public int id { get; set; }
         public string img { get; set; }
-        public string eventdate { get; set; }
+        public Nullable<System.DateTime> eventdate { get; set; }
         public string content { get; set; }
         public string title { get; set; }
+        public string description { get; set; }
         public string meta { get; set; }
         public Nullable<bool> hide { get; set; }
         public Nullable<int> order { get; set; }

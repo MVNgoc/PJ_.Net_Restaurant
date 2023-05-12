@@ -208,10 +208,11 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="img" Type="nvarchar" MaxLength="50" />
-    <Property Name="eventdate" Type="varchar" MaxLength="15" />
+    <Property Name="img" Type="nvarchar" MaxLength="100" />
+    <Property Name="eventdate" Type="date" />
     <Property Name="content" Type="nvarchar" MaxLength="50" />
     <Property Name="title" Type="nvarchar(max)" />
+    <Property Name="description" Type="ntext" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />
     <Property Name="order" Type="int" />

@@ -213,10 +213,11 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="img" Type="nvarchar" MaxLength="50" />
-          <Property Name="eventdate" Type="varchar" MaxLength="15" />
+          <Property Name="img" Type="nvarchar" MaxLength="100" />
+          <Property Name="eventdate" Type="date" />
           <Property Name="content" Type="nvarchar" MaxLength="50" />
           <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="description" Type="ntext" />
           <Property Name="meta" Type="nvarchar" MaxLength="50" />
           <Property Name="hide" Type="bit" />
           <Property Name="order" Type="int" />
@@ -281,7 +282,6 @@
           <EntitySet Name="Stories" EntityType="RestaurantModel.Story" />
           <EntitySet Name="Contacts" EntityType="RestaurantModel.Contact" />
           <EntitySet Name="OurStrengths" EntityType="RestaurantModel.OurStrength" />
-          <EntitySet Name="UpcomingEvents" EntityType="RestaurantModel.UpcomingEvent" />
           <EntitySet Name="Banners" EntityType="RestaurantModel.Banner" />
           <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
           <EntitySet Name="FoodStyles" EntityType="RestaurantModel.FoodStyle" />
@@ -290,6 +290,7 @@
           <EntitySet Name="ShopCarts" EntityType="RestaurantModel.ShopCart" />
           <EntitySet Name="Users" EntityType="RestaurantModel.User" />
           <EntitySet Name="Reservations" EntityType="RestaurantModel.Reservation" />
+          <EntitySet Name="UpcomingEvents" EntityType="RestaurantModel.UpcomingEvent" />
         </EntityContainer>
         <EntityType Name="Logo">
           <Key>
@@ -369,20 +370,6 @@
           <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="hide" Type="Boolean" />
-          <Property Name="order" Type="Int32" />
-          <Property Name="datebegin" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="UpcomingEvent">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="eventdate" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="hide" Type="Boolean" />
           <Property Name="order" Type="Int32" />
@@ -513,6 +500,21 @@
           <Property Name="order" Type="Int32" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="UpcomingEvent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="eventdate" Type="DateTime" Precision="0" />
+          <Property Name="content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -616,21 +618,6 @@
                 <ScalarProperty Name="meta" ColumnName="meta" />
                 <ScalarProperty Name="content" ColumnName="content" />
                 <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="img" ColumnName="img" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UpcomingEvents">
-            <EntityTypeMapping TypeName="RestaurantModel.UpcomingEvent">
-              <MappingFragment StoreEntitySet="UpcomingEvent">
-                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
-                <ScalarProperty Name="order" ColumnName="order" />
-                <ScalarProperty Name="hide" ColumnName="hide" />
-                <ScalarProperty Name="meta" ColumnName="meta" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="content" ColumnName="content" />
-                <ScalarProperty Name="eventdate" ColumnName="eventdate" />
                 <ScalarProperty Name="img" ColumnName="img" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
@@ -765,6 +752,22 @@
                 <ScalarProperty Name="numpersons" ColumnName="numpersons" />
                 <ScalarProperty Name="phonenum" ColumnName="phonenum" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UpcomingEvents">
+            <EntityTypeMapping TypeName="RestaurantModel.UpcomingEvent">
+              <MappingFragment StoreEntitySet="UpcomingEvent">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="eventdate" ColumnName="eventdate" />
+                <ScalarProperty Name="img" ColumnName="img" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

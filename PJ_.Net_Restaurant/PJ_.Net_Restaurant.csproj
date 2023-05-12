@@ -52,6 +52,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CKFinder, Version=2.3.1.2492, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Areas\admin\Content\ckfinder\bin\Debug\CKFinder.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -138,11 +142,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\BannersController.cs" />
+    <Compile Include="Areas\admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\admin\Controllers\DefaultController.cs" />
     <Compile Include="Areas\admin\Controllers\FoodsController.cs" />
     <Compile Include="Areas\admin\Controllers\menusController.cs" />
     <Compile Include="Areas\admin\Controllers\PublicController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Areas\admin\Controllers\UpcomingEventsController.cs" />
     <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\BillHistoryController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -3849,6 +3854,11 @@
     <Content Include="Areas\admin\Views\Public\ForgotPass.cshtml" />
     <Content Include="Areas\admin\Views\Public\ChangePass.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_ChangePassLayout.cshtml" />
+    <Content Include="Areas\admin\Views\UpcomingEvents\Create.cshtml" />
+    <Content Include="Areas\admin\Views\UpcomingEvents\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\UpcomingEvents\Details.cshtml" />
+    <Content Include="Areas\admin\Views\UpcomingEvents\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\UpcomingEvents\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\js\jquery-3.4.1.min.js" />

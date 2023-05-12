@@ -55,7 +55,7 @@
                     <div class="form-group">
                         @Html.Label("Mô tả", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.content, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextAreaFor(model => model.content, new { @class = "form-control", @rows = 3 })
                             @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
                         </div>
                     </div>

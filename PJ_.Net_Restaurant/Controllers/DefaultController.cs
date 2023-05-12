@@ -94,10 +94,10 @@ namespace PJ_.Net_Restaurant.Controllers
 
         public ActionResult getUpcomingEvent()
         {
-            var v = from t in db.UpcomingEvents
+            var v = (from t in db.UpcomingEvents
                     where t.hide == true
                     orderby t.order ascending
-                    select t;
+                    select t).Take(3);
 
             return PartialView(v.ToList());
         }

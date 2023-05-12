@@ -34,7 +34,7 @@ namespace PJ_.Net_Restaurant.Areas.admin.Controllers
             if (ModelState.IsValid)
             {
                 var f_password = GetMD5(password);
-                var data = db.Users.Where(s => s.email.Equals(email) && s.password.Equals(f_password) && s.Role.Equals("Admin")).ToList();
+                var data = db.Users.Where(s => s.email.Equals(email) && s.password.Equals(f_password) && s.Role.Equals("ADMIN")).ToList();
                 if (data.Count() > 0)
                 {
                     //add Session

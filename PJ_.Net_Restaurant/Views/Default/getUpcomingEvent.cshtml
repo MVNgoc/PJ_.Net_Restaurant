@@ -3,13 +3,13 @@
 @foreach (var i in Model)
 {
     <li>
-        <div class="event-card has-before hover:shine">
+        <a href="" class="event-card has-before hover:shine">
 
             <div class="card-banner img-holder" style="--width: 350; --height: 450;">
                 <img src="~/Uploads/images/events/@i.img" width="350" height="450" loading="lazy"
                      alt="@i.title" class="img-cover">
 
-                <time class="publish-date label-2" datetime="@i.eventdate">@i.eventdate</time>
+                <time class="publish-date label-2" datetime="@i.eventdate.Value.ToString("dd/MM/yyyy")">@i.eventdate.Value.ToString("dd/MM/yyyy")</time>
             </div>
 
             <div class="card-content">
@@ -20,6 +20,6 @@
                 </h3>
             </div>
 
-        </div>
+        </a>
     </li>
 }

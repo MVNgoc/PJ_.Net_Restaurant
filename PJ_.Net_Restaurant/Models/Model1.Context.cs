@@ -32,7 +32,6 @@ namespace PJ_.Net_Restaurant.Models
         public virtual DbSet<Story> Stories { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<OurStrength> OurStrengths { get; set; }
-        public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
         public virtual DbSet<Banner> Banners { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<FoodStyle> FoodStyles { get; set; }
@@ -41,5 +40,6 @@ namespace PJ_.Net_Restaurant.Models
         public virtual DbSet<ShopCart> ShopCarts { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
     }
 }
