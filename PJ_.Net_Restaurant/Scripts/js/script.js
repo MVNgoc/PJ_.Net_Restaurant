@@ -101,6 +101,7 @@ function validateUserChangePass() {
 function validateUserInfo() {
     let namebox = document.getElementById("name")
     let addressBox = document.getElementById("address")
+    let phoneBox = document.getElementById("phonenum")
     let emailBox = document.getElementById("email")
     let messageBox = document.getElementById("message")
 
@@ -110,6 +111,7 @@ function validateUserInfo() {
     let name = namebox.value
     let address = addressBox.value
     let email = emailBox.value
+    let phone = phoneBox.value
 
     if (name === "") {
         messageBox.innerHTML = "Please enter your name";
@@ -124,6 +126,11 @@ function validateUserInfo() {
     else if (email === "") {
         messageBox.innerHTML = "Please enter your email";
         emailBox.focus();
+        return false;
+    }
+    else if (phone === "") {
+        messageBox.innerHTML = "Please enter your phone number";
+        phoneBox.focus();
         return false;
     }
     else if (validateEmail.test(email) !== true) {
