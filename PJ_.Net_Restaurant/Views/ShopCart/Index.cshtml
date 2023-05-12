@@ -1,4 +1,4 @@
-﻿
+﻿@using PJ_.Net_Restaurant.Models;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout/_PublicLayout.cshtml";
@@ -9,87 +9,42 @@
         <div class="container container-list my-3">
             <table class="table-list-tb">
                 <tr class="table-list-tr">
-                    <th class="table-list-th">Num</th>
+                    <th class="table-list-th">Name</th>
                     <th class="table-list-th">Item</th>
                     <th class="table-list-th">Date</th>
                     <th class="table-list-th">Price</th>
                     <th class="table-list-th">Quantity</th>
+                    <th class="table-list-th">Total</th>
+                    <th class="table-list-th">Action</th>
                 </tr>
-                <tr class="table-list-tr">
-                    <td class="table-list-td">1</td>
-                    <td class="table-list-td">
-                        <img src="~/Uploads/images/foods/menu-1.png" alt="">
-                    </td>
-                    <td class="table-list-td">17/3/2023</td>
-                    <td class="table-list-td">$1500</td>
-                    <td class="table-list-td">
-                        <div class="product-qty">
-                            <input type="number" value="1">
-                        </div>
-                    </td>
-                </tr>
-                <tr class="table-list-tr">
-                    <td class="table-list-td">2</td>
-                    <td class="table-list-td">
-                        <img src="~/Uploads/images/foods/menu-2.png" alt="">
-                    </td>
-                    <td class="table-list-td">17/3/2023</td>
-                    <td class="table-list-td">$2000</td>
-                    <td class="table-list-td">
-                        <div class="product-qty">
-                            <input type="number" value="3">
-                        </div>
-                    </td>
-                </tr>
+                @foreach (var i in (List<Item>)Session["cart"])
+                {
+                    <tr class="table-list-tr">
+                        <td class="table-list-td">@i.food.name</td>
+                        <td class="table-list-td">
+                            <img src="~/Uploads/images/foods/@i.food.img" alt="@i.food.name">
+                        </td>
+                        <td class="table-list-td">@i.currentDateTime</td>
+                        <td class="table-list-td">$@i.food.price</td>
+                        <td class="table-list-td">
+                            <div class="product-qty">
+                                @i.quantity
+                            </div>
+                        </td>
+                        <td class="table-list-td">$@(i.food.price * i.quantity)</td>
+                        <td class="table-list-td">
+                            <a href="@Url.Action("removeFromCart","ShopCart",new { @productID = i.food.id })" class=""><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
 
                 <tr class="table-list-tr">
-                    <td class="table-list-td">3</td>
-                    <td class="table-list-td">
-                        <img src="~/Uploads/images/foods/menu-3.png" alt="">
-                    </td>
-                    <td class="table-list-td">17/3/2023</td>
-                    <td class="table-list-td">$1500</td>
-                    <td class="table-list-td">
-                        <div class="product-qty">
-                            <input type="number" value="2">
-                        </div>
-                    </td>
+                    @{
+                        List<Item> cart = (List<Item>)Session["cart"];
+                        var total = (from data in cart select data.food.price * data.quantity).Sum();
+                    }
+                    <td class="table-list-td"><h1>Total: $@total</h1></td>
                 </tr>
-
-                <tr class="table-list-tr">
-                    <th class="table-list-th">Num</th>
-                    <th class="table-list-th">Time</th>
-                    <th class="table-list-th">Date</th>
-                    <th class="table-list-th">Price</th>
-                    <th class="table-list-th">Table</th>
-                </tr>
-                <tr class="table-list-tr">
-                    <td class="table-list-td">1</td>
-                    <td class="table-list-td">
-                        6:44 PM
-                    </td>
-                    <td class="table-list-td">17/3/2023</td>
-                    <td class="table-list-td" id="table-total">$200</td>
-                    <td class="table-list-td">
-                        <div class="product-qty">
-                            <input type="number" value="2">
-                        </div>
-                    </td>
-                </tr>
-                <tr class="table-list-tr">
-                    <td class="table-list-td">2</td>
-                    <td class="table-list-td">
-                        4:30 PM
-                    </td>
-                    <td class="table-list-td">20/3/2023</td>
-                    <td class="table-list-td" id="table-total">$500</td>
-                    <td class="table-list-td">
-                        <div class="product-qty">
-                            <input type="number" value="5">
-                        </div>
-                    </td>
-                </tr>
-
             </table>
         </div>
     </div>

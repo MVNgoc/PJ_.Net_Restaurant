@@ -14,7 +14,7 @@
 
                 <div class="title-wrapper">
                     <h3 class="title-3">
-                        <a href="@i.meta" class="card-title">@i.name</a>
+                        <a href="@Url.Action("AddToCart","ShopCart",new {  @productID = i.id })" class="card-title">@i.name</a>
                     </h3>
                     @if (i.type != "")
                     {

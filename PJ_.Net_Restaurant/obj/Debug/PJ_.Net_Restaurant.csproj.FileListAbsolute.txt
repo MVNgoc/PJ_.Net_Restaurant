@@ -242,8 +242,6 @@ C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Fin
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.csproj.CopyComplete
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.dll
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.pdb
-C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.dll
-C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.SqlServer.dll
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.xml
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.SqlServer.xml
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\PJ_.Net_Restaurant.dll.config

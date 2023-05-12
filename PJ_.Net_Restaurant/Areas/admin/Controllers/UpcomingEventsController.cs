@@ -136,20 +136,14 @@ namespace PJ_.Net_Restaurant.Areas.admin.Controllers
                     temp.meta = Functions.ConvertToUnSign(upcomingEvent.meta); //convert Tiếng Việt không dấu
                     temp.order = upcomingEvent.order;
                     temp.hide = upcomingEvent.hide;
-                    db.Entry(upcomingEvent).State = EntityState.Modified;
+                    db.Entry(temp).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
             }
-            catch (DbEntityValidationException ex)
+            catch (DbEntityValidationException e)
             {
-                foreach (var entityValidationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in entityValidationErrors.ValidationErrors)
-                    {
-                        Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
-                    }
-                }
+                throw e;
             }
             catch (Exception ex)
             {
@@ -186,6 +180,19 @@ namespace PJ_.Net_Restaurant.Areas.admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             UpcomingEvent upcomingEvent = db.UpcomingEvents.Find(id);
+
+            // Lấy đường dẫn tới folder chứa file hình ảnh
+            string imagePath = Server.MapPath("~/Uploads/images/events");
+
+            // Xóa file hình ảnh có tên tương ứng với id của banner
+            string imageName = upcomingEvent.img;
+            // Console.Error.WriteLine(imageName);
+            string fullPath = Path.Combine(imagePath, imageName);
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+            }
+
             db.UpcomingEvents.Remove(upcomingEvent);
             db.SaveChanges();
             return RedirectToAction("Index");
