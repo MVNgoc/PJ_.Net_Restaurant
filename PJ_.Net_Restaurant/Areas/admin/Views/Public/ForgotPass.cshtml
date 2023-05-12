@@ -1,20 +1,27 @@
-﻿
+﻿@model PJ_.Net_Restaurant.Models.User
+
 @{
     ViewBag.Title = "ForgotPass";
     Layout = "~/Areas/admin/Views/Shared/_PublicLayout.cshtml";
 }
 
-<form class="login100-form validate-form">
+
+@using (Html.BeginForm("ForgotPass", "Public", FormMethod.Post, new { @class = "login100-form validate-form" }))
+{
+    @Html.AntiForgeryToken()
+
     <span class="login100-form-title p-b-43">
         FOGOT PASSWORD
     </span>
 
 
     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-        <input class="input100" type="text" name="email">
+        @Html.TextBoxFor(model => model.email, new { @class = "input100", @type = "text", @name = "email" })
         <span class="focus-input100"></span>
         <span class="label-input100">Email</span>
     </div>
+
+    <div class="input100" style="color: red; text-align:center; padding-bottom:10px" id="message">@ViewData["error"] </div>
 
     <div class="flex-sb-m w-full p-t-0 p-b-32">
         <div>
@@ -34,9 +41,9 @@
     </div>
 
     <div class="login100-form-social flex-c-m">
-        <a href="@Url.Action("Index","Public")" class="login100-form-social-item flex-c-m bg1 m-r-5">
+        <a href="@Url.Action("Index", "Public")" class="login100-form-social-item flex-c-m bg1 m-r-5">
             <i class="fa fa-solid fa-arrow-left" aria-hidden="true"></i>
         </a>
     </div>
-</form>
+}
 
