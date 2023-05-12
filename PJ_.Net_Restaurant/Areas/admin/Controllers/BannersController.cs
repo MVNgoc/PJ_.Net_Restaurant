@@ -189,7 +189,7 @@ namespace PJ_.Net_Restaurant.Areas.admin.Controllers
 
             // Xóa file hình ảnh có tên tương ứng với id của banner
             string imageName = banner.img;
-            Console.Error.WriteLine(imageName);
+            // Console.Error.WriteLine(imageName);
             string fullPath = Path.Combine(imagePath, imageName);
             if (System.IO.File.Exists(fullPath))
             {
