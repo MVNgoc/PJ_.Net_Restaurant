@@ -1,32 +1,34 @@
-﻿
+﻿@model PJ_.Net_Restaurant.Models.User
+
+
 @{
     ViewBag.Title = "ChangePass";
     Layout = "~/Areas/admin/Views/Shared/_ChangePassLayout.cshtml";
 }
 
-<form class="login100-form validate-form" style="margin-left: auto; margin-right: auto;">
+@using (Html.BeginForm("ChangePass", "Public", FormMethod.Post, new { Style = "margin-left: auto; margin-right: auto;", @class = "login100-form", onsubmit = "return validateResetPass()" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+
     <span class="login100-form-title p-b-43">
         CHANGE PASSWORD
     </span>
 
-
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        <input class="input100" type="password" name="pass">
-        <span class="focus-input100"></span>
-        <span class="label-input100">Old Password</span>
-    </div>
-
-    <div class="wrap-input100 validate-input" data-validate="Password is required">
-        <input class="input100" type="password" name="pass">
+        @Html.PasswordFor(model => model.password, new { @class = "input100", @type = "password", @name = "pass", @id= "pwd" })
         <span class="focus-input100"></span>
         <span class="label-input100">New Password</span>
     </div>
 
     <div class="wrap-input100 validate-input" data-validate="Password is required">
-        <input class="input100" type="password" name="pass">
+        <input class="input100" type="password" name="pass" id="cnpwd">
         <span class="focus-input100"></span>
         <span class="label-input100">Confirm New Password</span>
     </div>
+
+    <div class="input100" style="color: red; text-align:center; padding-bottom:10px" id="message">@ViewData["error"]</div>
+
 
     <div class="container-login100-form-btn">
         <button class="login100-form-btn">
@@ -41,9 +43,10 @@
     </div>
 
     <div class="login100-form-social flex-c-m">
-        <a href="@Url.Action("Index","Default")" class="login100-form-social-item flex-c-m bg1 m-r-5">
+        <a href="@Url.Action("Index", "Default")" class="login100-form-social-item flex-c-m bg1 m-r-5">
             <i class="fa fa-solid fa-arrow-left" aria-hidden="true"></i>
         </a>
     </div>
-</form>
+}
+
 

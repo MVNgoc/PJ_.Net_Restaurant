@@ -44,6 +44,7 @@ namespace PJ_.Net_Restaurant.Controllers
                     Session["address"] = data.FirstOrDefault().address;
                     Session["password"] = f_password;
                     Session["idUser"] = data.FirstOrDefault().id;
+                    Session["role"] = data.FirstOrDefault().Role;
                     return RedirectToRoute(new { Controller = "Default", action = "Index" });
 
                 }
