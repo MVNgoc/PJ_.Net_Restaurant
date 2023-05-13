@@ -71,19 +71,5 @@ namespace PJ_.Net_Restaurant.Controllers
             return PartialView("BagCart");
         }
 
-        //Post CheckOut
-        public ActionResult CheckOut(FormCollection form)
-        {
-            try
-            {
-                Cart cart = Session["Cart"] as Cart;
-                Order
-            }
-            catch
-            {
-
-            }
-        }
-
     }
 }

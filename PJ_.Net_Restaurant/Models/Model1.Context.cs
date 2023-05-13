@@ -25,23 +25,23 @@ namespace PJ_.Net_Restaurant.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Navbar> Navbars { get; set; }
-        public virtual DbSet<Logo> Logoes { get; set; }
-        public virtual DbSet<Offer> Offers { get; set; }
-        public virtual DbSet<Social> Socials { get; set; }
-        public virtual DbSet<Story> Stories { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
-        public virtual DbSet<OurStrength> OurStrengths { get; set; }
-        public virtual DbSet<Banner> Banners { get; set; }
         public virtual DbSet<Background> Backgrounds { get; set; }
+        public virtual DbSet<Banner> Banners { get; set; }
         public virtual DbSet<Bill> Bills { get; set; }
-        public virtual DbSet<ShopCart> ShopCarts { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Reservation> Reservations { get; set; }
-        public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<FoodStyle> FoodStyles { get; set; }
+        public virtual DbSet<Logo> Logoes { get; set; }
+        public virtual DbSet<Navbar> Navbars { get; set; }
+        public virtual DbSet<Offer> Offers { get; set; }
         public virtual DbSet<Order_shop> Order_shop { get; set; }
+        public virtual DbSet<OurStrength> OurStrengths { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<ShopCart> ShopCarts { get; set; }
+        public virtual DbSet<Social> Socials { get; set; }
+        public virtual DbSet<Story> Stories { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
