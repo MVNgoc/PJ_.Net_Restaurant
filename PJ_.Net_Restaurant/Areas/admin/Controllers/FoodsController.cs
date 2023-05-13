@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,6 +13,7 @@ using System.Web;
 using System.Web.Mvc;
 using PJ_.Net_Restaurant.Help;
 using PJ_.Net_Restaurant.Models;
+using static CKFinder.Connector.CKFinderEvent;
 
 namespace PJ_.Net_Restaurant.Areas.admin.Controllers
 {
@@ -43,6 +45,15 @@ namespace PJ_.Net_Restaurant.Areas.admin.Controllers
         // GET: admin/Foods/Create
         public ActionResult Create()
         {
+            List<FoodStyle> foodStyles = null;
+            foodStyles = db.FoodStyles.ToList();
+            List<SelectListItem> selectListItems = foodStyles.Select(fs => new SelectListItem
+            {
+                Text = fs.name,
+                Value = fs.id.ToString()
+            }).ToList();
+
+            ViewBag.FoodStyleItems = selectListItems;
             return View();
         }
 
@@ -103,6 +114,17 @@ namespace PJ_.Net_Restaurant.Areas.admin.Controllers
             {
                 return HttpNotFound();
             }
+
+            List<FoodStyle> foodStyles = null;
+            foodStyles = db.FoodStyles.ToList();
+            List<SelectListItem> selectListItems = foodStyles.Select(fs => new SelectListItem
+            {
+                Text = fs.name,
+                Value = fs.id.ToString()
+            }).ToList();
+
+            ViewBag.FoodStyleItems = selectListItems;
+
             return View(food);
         }
 

@@ -14,6 +14,12 @@ namespace PJ_.Net_Restaurant.Models
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Order_shop = new HashSet<Order_shop>();
+        }
+    
         public int id { get; set; }
         public string email { get; set; }
         public string password { get; set; }
@@ -26,5 +32,8 @@ namespace PJ_.Net_Restaurant.Models
         public Nullable<int> order { get; set; }
         public Nullable<System.DateTime> datebegin { get; set; }
         public string Role { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_shop> Order_shop { get; set; }
     }
 }

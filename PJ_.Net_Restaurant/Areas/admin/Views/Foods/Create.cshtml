@@ -80,13 +80,7 @@
 
                         @Html.Label("Kiểu món", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-4">
-                            @Html.DropDownListFor(model => model.footstyle, new List<SelectListItem>
-                            {
-                                new SelectListItem { Text = "Dessert", Value = "Dessert" },
-                                new SelectListItem { Text = "Appetizers", Value = "Appetizers" },
-                                new SelectListItem { Text = "Entree", Value = "Entree" },
-                                new SelectListItem { Text = "Drinks", Value = "Drinks" },
-                            }, "Chọn kiểu món", new { @class = "form-control" })
+                            @Html.DropDownListFor(model => model.footstyle, (IEnumerable<SelectListItem>)ViewBag.FoodStyleItems, "Chọn kiểu món", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.footstyle, "", new { @class = "text-danger" })
                         </div>
                     </div>

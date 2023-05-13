@@ -14,6 +14,12 @@ namespace PJ_.Net_Restaurant.Models
     
     public partial class FoodStyle
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FoodStyle()
+        {
+            this.Foods = new HashSet<Food>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
         public string img { get; set; }
@@ -22,5 +28,8 @@ namespace PJ_.Net_Restaurant.Models
         public Nullable<bool> hide { get; set; }
         public Nullable<int> order { get; set; }
         public Nullable<System.DateTime> datebegin { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Food> Foods { get; set; }
     }
 }

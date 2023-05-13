@@ -33,13 +33,15 @@ namespace PJ_.Net_Restaurant.Models
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<OurStrength> OurStrengths { get; set; }
         public virtual DbSet<Banner> Banners { get; set; }
-        public virtual DbSet<Food> Foods { get; set; }
-        public virtual DbSet<FoodStyle> FoodStyles { get; set; }
         public virtual DbSet<Background> Backgrounds { get; set; }
         public virtual DbSet<Bill> Bills { get; set; }
         public virtual DbSet<ShopCart> ShopCarts { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
         public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
+        public virtual DbSet<Food> Foods { get; set; }
+        public virtual DbSet<FoodStyle> FoodStyles { get; set; }
+        public virtual DbSet<Order_shop> Order_shop { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

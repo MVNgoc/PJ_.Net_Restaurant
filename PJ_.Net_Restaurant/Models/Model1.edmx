@@ -74,13 +74,13 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="100" />
-          <Property Name="img" Type="nvarchar" MaxLength="50" />
+          <Property Name="img" Type="nvarchar" MaxLength="100" />
           <Property Name="price" Type="float" />
           <Property Name="discountprice" Type="float" />
           <Property Name="describe" Type="nvarchar(max)" />
           <Property Name="sales" Type="int" />
           <Property Name="type" Type="nvarchar" MaxLength="50" />
-          <Property Name="footstyle" Type="nvarchar" MaxLength="50" />
+          <Property Name="footstyle" Type="nvarchar" MaxLength="100" />
           <Property Name="link" Type="nvarchar(max)" />
           <Property Name="meta" Type="nvarchar" MaxLength="50" />
           <Property Name="hide" Type="bit" />
@@ -89,11 +89,11 @@
         </EntityType>
         <EntityType Name="FoodStyle">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
-          <Property Name="img" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="img" Type="nvarchar" MaxLength="100" />
           <Property Name="link" Type="nvarchar(max)" />
           <Property Name="meta" Type="nvarchar" MaxLength="50" />
           <Property Name="hide" Type="bit" />
@@ -133,6 +133,18 @@
           <Property Name="hide" Type="bit" />
           <Property Name="order" Type="int" />
           <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Order_shop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foods_id" Type="int" />
+          <Property Name="users_id" Type="int" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="product_price" Type="float" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="total_cart" Type="float" />
         </EntityType>
         <EntityType Name="OurStrength">
           <Key>
@@ -208,6 +220,16 @@
           <Property Name="order" Type="int" />
           <Property Name="datebegin" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="UpcomingEvent">
           <Key>
             <PropertyRef Name="id" />
@@ -240,6 +262,42 @@
           <Property Name="datebegin" Type="smalldatetime" />
           <Property Name="Role" Type="nvarchar" MaxLength="10" />
         </EntityType>
+        <Association Name="FK__Food__footstyle__15DA3E5D">
+          <End Role="FoodStyle" Type="Self.FoodStyle" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodStyle">
+              <PropertyRef Name="name" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="footstyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_sho__foods__18B6AB08">
+          <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+          <End Role="Order_shop" Type="Self.Order_shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order_shop">
+              <PropertyRef Name="foods_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_sho__users__19AACF41">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order_shop" Type="Self.Order_shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order_shop">
+              <PropertyRef Name="users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="RestaurantModelStoreContainer">
           <EntitySet Name="Background" EntityType="Self.Background" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
@@ -250,13 +308,27 @@
           <EntitySet Name="Logo" EntityType="Self.Logo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_shop" EntityType="Self.Order_shop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OurStrength" EntityType="Self.OurStrength" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShopCart" EntityType="Self.ShopCart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Social" EntityType="Self.Social" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Story" EntityType="Self.Story" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UpcomingEvent" EntityType="Self.UpcomingEvent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Food__footstyle__15DA3E5D" Association="Self.FK__Food__footstyle__15DA3E5D">
+            <End Role="FoodStyle" EntitySet="FoodStyle" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_sho__foods__18B6AB08" Association="Self.FK__Order_sho__foods__18B6AB08">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="Order_shop" EntitySet="Order_shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_sho__users__19AACF41" Association="Self.FK__Order_sho__users__19AACF41">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order_shop" EntitySet="Order_shop" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -283,14 +355,28 @@
           <EntitySet Name="Contacts" EntityType="RestaurantModel.Contact" />
           <EntitySet Name="OurStrengths" EntityType="RestaurantModel.OurStrength" />
           <EntitySet Name="Banners" EntityType="RestaurantModel.Banner" />
-          <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
-          <EntitySet Name="FoodStyles" EntityType="RestaurantModel.FoodStyle" />
           <EntitySet Name="Backgrounds" EntityType="RestaurantModel.Background" />
           <EntitySet Name="Bills" EntityType="RestaurantModel.Bill" />
           <EntitySet Name="ShopCarts" EntityType="RestaurantModel.ShopCart" />
           <EntitySet Name="Users" EntityType="RestaurantModel.User" />
           <EntitySet Name="Reservations" EntityType="RestaurantModel.Reservation" />
           <EntitySet Name="UpcomingEvents" EntityType="RestaurantModel.UpcomingEvent" />
+          <EntitySet Name="Foods" EntityType="RestaurantModel.Food" />
+          <EntitySet Name="FoodStyles" EntityType="RestaurantModel.FoodStyle" />
+          <EntitySet Name="Order_shop" EntityType="RestaurantModel.Order_shop" />
+          <EntitySet Name="sysdiagrams" EntityType="RestaurantModel.sysdiagram" />
+          <AssociationSet Name="FK__Food__footstyle__15DA3E5D" Association="RestaurantModel.FK__Food__footstyle__15DA3E5D">
+            <End Role="FoodStyle" EntitySet="FoodStyles" />
+            <End Role="Food" EntitySet="Foods" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_sho__foods__18B6AB08" Association="RestaurantModel.FK__Order_sho__foods__18B6AB08">
+            <End Role="Food" EntitySet="Foods" />
+            <End Role="Order_shop" EntitySet="Order_shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_sho__users__19AACF41" Association="RestaurantModel.FK__Order_sho__users__19AACF41">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order_shop" EntitySet="Order_shop" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Logo">
           <Key>
@@ -390,38 +476,6 @@
           <Property Name="order" Type="Int32" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityType Name="Food">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="price" Type="Double" />
-          <Property Name="discountprice" Type="Double" />
-          <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="sales" Type="Int32" />
-          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="footstyle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="hide" Type="Boolean" />
-          <Property Name="order" Type="Int32" />
-          <Property Name="datebegin" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="FoodStyle">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="hide" Type="Boolean" />
-          <Property Name="order" Type="Int32" />
-          <Property Name="datebegin" Type="DateTime" Precision="0" />
-        </EntityType>
         <EntityType Name="Background">
           <Key>
             <PropertyRef Name="id" />
@@ -483,6 +537,7 @@
           <Property Name="order" Type="Int32" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
           <Property Name="Role" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order_shop" Relationship="RestaurantModel.FK__Order_sho__users__19AACF41" FromRole="User" ToRole="Order_shop" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
@@ -515,6 +570,101 @@
           <Property Name="order" Type="Int32" />
           <Property Name="datebegin" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Double" />
+          <Property Name="discountprice" Type="Double" />
+          <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sales" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="footstyle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="FoodStyle" Relationship="RestaurantModel.FK__Food__footstyle__15DA3E5D" FromRole="Food" ToRole="FoodStyle" />
+          <NavigationProperty Name="Order_shop" Relationship="RestaurantModel.FK__Order_sho__foods__18B6AB08" FromRole="Food" ToRole="Order_shop" />
+        </EntityType>
+        <EntityType Name="FoodStyle">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Foods" Relationship="RestaurantModel.FK__Food__footstyle__15DA3E5D" FromRole="FoodStyle" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="Order_shop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foods_id" Type="Int32" />
+          <Property Name="users_id" Type="Int32" />
+          <Property Name="product_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="product_price" Type="Double" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="total_cart" Type="Double" />
+          <NavigationProperty Name="Food" Relationship="RestaurantModel.FK__Order_sho__foods__18B6AB08" FromRole="Order_shop" ToRole="Food" />
+          <NavigationProperty Name="User" Relationship="RestaurantModel.FK__Order_sho__users__19AACF41" FromRole="Order_shop" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__Food__footstyle__15DA3E5D">
+          <End Type="RestaurantModel.FoodStyle" Role="FoodStyle" Multiplicity="0..1" />
+          <End Type="RestaurantModel.Food" Role="Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodStyle">
+              <PropertyRef Name="name" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="footstyle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_sho__foods__18B6AB08">
+          <End Type="RestaurantModel.Food" Role="Food" Multiplicity="0..1" />
+          <End Type="RestaurantModel.Order_shop" Role="Order_shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order_shop">
+              <PropertyRef Name="foods_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_sho__users__19AACF41">
+          <End Type="RestaurantModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="RestaurantModel.Order_shop" Role="Order_shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order_shop">
+              <PropertyRef Name="users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -639,40 +789,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Foods">
-            <EntityTypeMapping TypeName="RestaurantModel.Food">
-              <MappingFragment StoreEntitySet="Food">
-                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
-                <ScalarProperty Name="order" ColumnName="order" />
-                <ScalarProperty Name="hide" ColumnName="hide" />
-                <ScalarProperty Name="meta" ColumnName="meta" />
-                <ScalarProperty Name="link" ColumnName="link" />
-                <ScalarProperty Name="footstyle" ColumnName="footstyle" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="sales" ColumnName="sales" />
-                <ScalarProperty Name="describe" ColumnName="describe" />
-                <ScalarProperty Name="discountprice" ColumnName="discountprice" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="img" ColumnName="img" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FoodStyles">
-            <EntityTypeMapping TypeName="RestaurantModel.FoodStyle">
-              <MappingFragment StoreEntitySet="FoodStyle">
-                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
-                <ScalarProperty Name="order" ColumnName="order" />
-                <ScalarProperty Name="hide" ColumnName="hide" />
-                <ScalarProperty Name="meta" ColumnName="meta" />
-                <ScalarProperty Name="link" ColumnName="link" />
-                <ScalarProperty Name="img" ColumnName="img" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Backgrounds">
             <EntityTypeMapping TypeName="RestaurantModel.Background">
               <MappingFragment StoreEntitySet="Background">
@@ -769,6 +885,64 @@
                 <ScalarProperty Name="eventdate" ColumnName="eventdate" />
                 <ScalarProperty Name="img" ColumnName="img" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foods">
+            <EntityTypeMapping TypeName="RestaurantModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="footstyle" ColumnName="footstyle" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="sales" ColumnName="sales" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="discountprice" ColumnName="discountprice" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodStyles">
+            <EntityTypeMapping TypeName="RestaurantModel.FoodStyle">
+              <MappingFragment StoreEntitySet="FoodStyle">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_shop">
+            <EntityTypeMapping TypeName="RestaurantModel.Order_shop">
+              <MappingFragment StoreEntitySet="Order_shop">
+                <ScalarProperty Name="total_cart" ColumnName="total_cart" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="users_id" ColumnName="users_id" />
+                <ScalarProperty Name="foods_id" ColumnName="foods_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RestaurantModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

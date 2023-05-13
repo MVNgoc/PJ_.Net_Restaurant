@@ -69,13 +69,13 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="100" />
-    <Property Name="img" Type="nvarchar" MaxLength="50" />
+    <Property Name="img" Type="nvarchar" MaxLength="100" />
     <Property Name="price" Type="float" />
     <Property Name="discountprice" Type="float" />
     <Property Name="describe" Type="nvarchar(max)" />
     <Property Name="sales" Type="int" />
     <Property Name="type" Type="nvarchar" MaxLength="50" />
-    <Property Name="footstyle" Type="nvarchar" MaxLength="50" />
+    <Property Name="footstyle" Type="nvarchar" MaxLength="100" />
     <Property Name="link" Type="nvarchar(max)" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />
@@ -84,11 +84,11 @@
   </EntityType>
   <EntityType Name="FoodStyle">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="100" />
-    <Property Name="img" Type="nvarchar" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="img" Type="nvarchar" MaxLength="100" />
     <Property Name="link" Type="nvarchar(max)" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />
@@ -128,6 +128,18 @@
     <Property Name="hide" Type="bit" />
     <Property Name="order" Type="int" />
     <Property Name="datebegin" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Order_shop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="foods_id" Type="int" />
+    <Property Name="users_id" Type="int" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="product_price" Type="float" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="total_cart" Type="float" />
   </EntityType>
   <EntityType Name="OurStrength">
     <Key>
@@ -203,6 +215,16 @@
     <Property Name="order" Type="int" />
     <Property Name="datebegin" Type="smalldatetime" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="UpcomingEvent">
     <Key>
       <PropertyRef Name="id" />
@@ -235,6 +257,42 @@
     <Property Name="datebegin" Type="smalldatetime" />
     <Property Name="Role" Type="nvarchar" MaxLength="10" />
   </EntityType>
+  <Association Name="FK__Food__footstyle__15DA3E5D">
+    <End Role="FoodStyle" Type="Self.FoodStyle" Multiplicity="0..1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodStyle">
+        <PropertyRef Name="name" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="footstyle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_sho__foods__18B6AB08">
+    <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+    <End Role="Order_shop" Type="Self.Order_shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Order_shop">
+        <PropertyRef Name="foods_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_sho__users__19AACF41">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Order_shop" Type="Self.Order_shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Order_shop">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="RestaurantModelStoreContainer">
     <EntitySet Name="Background" EntityType="Self.Background" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
@@ -245,12 +303,26 @@
     <EntitySet Name="Logo" EntityType="Self.Logo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_shop" EntityType="Self.Order_shop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OurStrength" EntityType="Self.OurStrength" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ShopCart" EntityType="Self.ShopCart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Social" EntityType="Self.Social" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Story" EntityType="Self.Story" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UpcomingEvent" EntityType="Self.UpcomingEvent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Food__footstyle__15DA3E5D" Association="Self.FK__Food__footstyle__15DA3E5D">
+      <End Role="FoodStyle" EntitySet="FoodStyle" />
+      <End Role="Food" EntitySet="Food" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_sho__foods__18B6AB08" Association="Self.FK__Order_sho__foods__18B6AB08">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="Order_shop" EntitySet="Order_shop" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_sho__users__19AACF41" Association="Self.FK__Order_sho__users__19AACF41">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order_shop" EntitySet="Order_shop" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

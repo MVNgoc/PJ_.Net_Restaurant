@@ -13,14 +13,19 @@
         <EntityTypeShape EntityType="RestaurantModel.Contact" Width="1.5" PointX="2.5" PointY="0.75" />
         <EntityTypeShape EntityType="RestaurantModel.OurStrength" Width="1.5" PointX="8.5" PointY="0.625" />
         <EntityTypeShape EntityType="RestaurantModel.Banner" Width="1.5" PointX="6.5" PointY="4.75" />
-        <EntityTypeShape EntityType="RestaurantModel.Food" Width="1.5" PointX="2.625" PointY="4.75" />
-        <EntityTypeShape EntityType="RestaurantModel.FoodStyle" Width="1.5" PointX="6.375" PointY="0.75" />
         <EntityTypeShape EntityType="RestaurantModel.Background" Width="1.5" PointX="7.25" PointY="8.75" />
         <EntityTypeShape EntityType="RestaurantModel.Bill" Width="1.5" PointX="8.375" PointY="4.75" />
         <EntityTypeShape EntityType="RestaurantModel.ShopCart" Width="1.5" PointX="10.25" PointY="4.75" />
         <EntityTypeShape EntityType="RestaurantModel.User" Width="1.5" PointX="3.375" PointY="9.75" />
         <EntityTypeShape EntityType="RestaurantModel.Reservation" Width="1.5" PointX="0.75" PointY="9.75" />
         <EntityTypeShape EntityType="RestaurantModel.UpcomingEvent" Width="1.5" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RestaurantModel.Food" Width="1.5" PointX="3.375" PointY="14" />
+        <EntityTypeShape EntityType="RestaurantModel.FoodStyle" Width="1.5" PointX="0.875" PointY="14" />
+        <EntityTypeShape EntityType="RestaurantModel.Order_shop" Width="1.5" PointX="6.625" PointY="14.375" />
+        <EntityTypeShape EntityType="RestaurantModel.sysdiagram" Width="1.5" PointX="12.25" PointY="5.5" />
+        <AssociationConnector Association="RestaurantModel.FK__Food__footstyle__15DA3E5D" />
+        <AssociationConnector Association="RestaurantModel.FK__Order_sho__foods__18B6AB08" />
+        <AssociationConnector Association="RestaurantModel.FK__Order_sho__users__19AACF41" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

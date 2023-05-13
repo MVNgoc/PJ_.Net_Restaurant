@@ -330,3 +330,5 @@ C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debu
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\obj\Debug\PJ_.Net_Restaurant.csproj.AssemblyReference.cache
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\CKFinder.dll
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\CKFinder.pdb
+C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.dll
+C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.SqlServer.dll
