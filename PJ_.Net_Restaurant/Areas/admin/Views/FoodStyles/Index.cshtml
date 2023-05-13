@@ -1,5 +1,5 @@
 ﻿@using PJ_.Net_Restaurant.Help
-@model IEnumerable<PJ_.Net_Restaurant.Models.Food>
+@model IEnumerable<PJ_.Net_Restaurant.Models.FoodStyle>
 
 @{
     ViewBag.Title = "Index";
@@ -35,12 +35,12 @@
     <div class="col-lg-12">
         <div class="panel panel-green">
             <div class="panel-heading">
-                Quản lý món ăn
+                Quản lý Loại món
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <p style="text-align:right">
-                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span> Thêm mới", "Create", "Create", "Foods", routeValues: new { }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span> Thêm mới", "Create", "Create", "FoodStyles", routeValues: new { }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
                 </p>
 
                 <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="width:100%">
@@ -53,16 +53,7 @@
                                 Hình ảnh
                             </th>
                             <th>
-                                Tên món
-                            </th>
-                            <th>
-                                Giá
-                            </th>
-                            <th>
-                                Tag
-                            </th>
-                            <th>
-                                Loại món
+                                Tên loại món
                             </th>
                             <th>
                                 Trạng thái
@@ -85,21 +76,10 @@
                                     @Html.Raw(Number++)
                                 </td>
                                 <td>
-                                    <img src="~/Uploads/images/foods/@item.img" style="width: 80px" />
+                                    <img src="~/Uploads/images/dishtype/@item.img" style="width: 80px" />
                                 </td>
                                 <td style="text-align:center; white-space:nowrap">
                                     @Html.DisplayFor(modelItem => item.name)
-                                </td>
-                                <td style="text-align:center;">
-                                    @Html.DisplayFor(modelItem => item.price)
-                                </td>
-                                <td style="text-align:center;">
-                                    @Html.DisplayFor(modelItem => item.type)
-
-                                </td>
-                                <td style="text-align:center;">
-                                    @Html.DisplayFor(modelItem => item.footstyle)
-
                                 </td>
                                 <td>
                                     @(item.hide.GetValueOrDefault(false) ? "Hiển thị" : "Ẩn")
@@ -111,9 +91,9 @@
                                     @(item.datebegin.HasValue ? item.datebegin.Value.ToString("dd/MM/yyyy") : "")
                                 </td>
                                 <td>
-                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Cập nhật", "Edit", "Foods", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
-                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-zoom-in'></span>", "Chi tiết", "Details", "Foods", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
-                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Xóa", "Delete", "Foods", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
+                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Cập nhật", "Edit", "FoodStyles", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-zoom-in'></span>", "Chi tiết", "Details", "FoodStyles", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Xóa", "Delete", "FoodStyles", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
                                 </td>
                             </tr>
                         }

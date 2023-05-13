@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using PJ_.Net_Restaurant.Controllers;
+using PJ_.Net_Restaurant.Help;
 using PJ_.Net_Restaurant.Models;
 
 namespace PJ_.Net_Restaurant.Areas.admin.Views.users
@@ -49,8 +56,29 @@ namespace PJ_.Net_Restaurant.Areas.admin.Views.users
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,email,password,name,phonenum,address,token,meta,hide,order,datebegin,Role")] User user)
         {
+            var temp = "";
             if (ModelState.IsValid)
             {
+                user.datebegin = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                user.meta = "";
+                user.order = null;
+                user.token = "";
+                user.hide = true;
+                temp = user.password;
+                // create an instance of the MD5 hash algorithm
+                MD5 md5Hash = MD5.Create();
+
+                // convert the input string to a byte array and compute the hash
+                byte[] hashBytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(temp));
+
+                // convert the byte array to a hexadecimal string
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("x2"));
+                }
+                string hashString = sb.ToString();
+                user.password = hashString;
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,13 +109,42 @@ namespace PJ_.Net_Restaurant.Areas.admin.Views.users
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,email,password,name,phonenum,address,token,meta,hide,order,datebegin,Role")] User user)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                User temp = getById(user.id);
+                if (ModelState.IsValid)
+                {
+                    // temp.datebegin = Convert.ToDateTime(DateTime.Now.ToShortDateString());                   
+                    temp.name = user.name;
+                    temp.email = user.email;
+                    temp.phonenum = user.phonenum;
+                    temp.address = user.address;
+                    temp.Role = user.Role;
+                    db.Entry(temp).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
             return View(user);
+        }
+        public User getById(long id)
+        {
+            return db.Users.Where(x => x.id == id).FirstOrDefault();
+
         }
 
         // GET: admin/User/Delete/5

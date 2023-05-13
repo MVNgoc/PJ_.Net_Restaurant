@@ -29,6 +29,7 @@ namespace PJ_.Net_Restaurant.Models
         public Nullable<int> sales { get; set; }
         public string type { get; set; }
         public string footstyle { get; set; }
+        public Nullable<int> footstyle_id { get; set; }
         public string link { get; set; }
         public string meta { get; set; }
         public Nullable<bool> hide { get; set; }

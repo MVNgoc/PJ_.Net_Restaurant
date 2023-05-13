@@ -39,9 +39,9 @@ namespace PJ_.Net_Restaurant.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
         public virtual DbSet<UpcomingEvent> UpcomingEvents { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<FoodStyle> FoodStyles { get; set; }
         public virtual DbSet<Order_shop> Order_shop { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

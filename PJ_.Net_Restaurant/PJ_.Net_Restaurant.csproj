@@ -213,6 +213,7 @@
     <Compile Include="Models\OurStrength.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\Reservation.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -218,6 +218,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RestaurantModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Foods">
       <EntityTypeMapping TypeName="RestaurantModel.Food">
         <MappingFragment StoreEntitySet="Food">
@@ -226,6 +237,7 @@
           <ScalarProperty Name="hide" ColumnName="hide" />
           <ScalarProperty Name="meta" ColumnName="meta" />
           <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="footstyle_id" ColumnName="footstyle_id" />
           <ScalarProperty Name="footstyle" ColumnName="footstyle" />
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="sales" ColumnName="sales" />
@@ -262,17 +274,6 @@
           <ScalarProperty Name="users_id" ColumnName="users_id" />
           <ScalarProperty Name="foods_id" ColumnName="foods_id" />
           <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="RestaurantModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

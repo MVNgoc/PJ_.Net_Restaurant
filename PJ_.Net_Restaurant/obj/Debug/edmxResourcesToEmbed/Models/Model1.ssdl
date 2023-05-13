@@ -75,7 +75,8 @@
     <Property Name="describe" Type="nvarchar(max)" />
     <Property Name="sales" Type="int" />
     <Property Name="type" Type="nvarchar" MaxLength="50" />
-    <Property Name="footstyle" Type="nvarchar" MaxLength="100" />
+    <Property Name="footstyle" Type="nvarchar" MaxLength="50" />
+    <Property Name="footstyle_id" Type="int" />
     <Property Name="link" Type="nvarchar(max)" />
     <Property Name="meta" Type="nvarchar" MaxLength="50" />
     <Property Name="hide" Type="bit" />
@@ -84,7 +85,7 @@
   </EntityType>
   <EntityType Name="FoodStyle">
     <Key>
-      <PropertyRef Name="name" />
+      <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -257,19 +258,19 @@
     <Property Name="datebegin" Type="smalldatetime" />
     <Property Name="Role" Type="nvarchar" MaxLength="10" />
   </EntityType>
-  <Association Name="FK__Food__footstyle__15DA3E5D">
+  <Association Name="FK__Food__footstyle___3552E9B6">
     <End Role="FoodStyle" Type="Self.FoodStyle" Multiplicity="0..1" />
     <End Role="Food" Type="Self.Food" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="FoodStyle">
-        <PropertyRef Name="name" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Food">
-        <PropertyRef Name="footstyle" />
+        <PropertyRef Name="footstyle_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Order_sho__foods__18B6AB08">
+  <Association Name="FK__Order_sho__foods__382F5661">
     <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
     <End Role="Order_shop" Type="Self.Order_shop" Multiplicity="*" />
     <ReferentialConstraint>
@@ -281,7 +282,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Order_sho__users__19AACF41">
+  <Association Name="FK__Order_sho__users__39237A9A">
     <End Role="User" Type="Self.User" Multiplicity="0..1" />
     <End Role="Order_shop" Type="Self.Order_shop" Multiplicity="*" />
     <ReferentialConstraint>
@@ -312,15 +313,15 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UpcomingEvent" EntityType="Self.UpcomingEvent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Food__footstyle__15DA3E5D" Association="Self.FK__Food__footstyle__15DA3E5D">
+    <AssociationSet Name="FK__Food__footstyle___3552E9B6" Association="Self.FK__Food__footstyle___3552E9B6">
       <End Role="FoodStyle" EntitySet="FoodStyle" />
       <End Role="Food" EntitySet="Food" />
     </AssociationSet>
-    <AssociationSet Name="FK__Order_sho__foods__18B6AB08" Association="Self.FK__Order_sho__foods__18B6AB08">
+    <AssociationSet Name="FK__Order_sho__foods__382F5661" Association="Self.FK__Order_sho__foods__382F5661">
       <End Role="Food" EntitySet="Food" />
       <End Role="Order_shop" EntitySet="Order_shop" />
     </AssociationSet>
-    <AssociationSet Name="FK__Order_sho__users__19AACF41" Association="Self.FK__Order_sho__users__19AACF41">
+    <AssociationSet Name="FK__Order_sho__users__39237A9A" Association="Self.FK__Order_sho__users__39237A9A">
       <End Role="User" EntitySet="User" />
       <End Role="Order_shop" EntitySet="Order_shop" />
     </AssociationSet>

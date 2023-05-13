@@ -64,10 +64,10 @@ namespace PJ_.Net_Restaurant.Controllers
         public ActionResult getSpecialDish()
         {
             ViewBag.meta = "Food-Menu";
-            var v = from t in db.Foods
+            var v = (from t in db.Foods
                     where t.hide == true
                     where t.type == "SPECIAL"
-                    select t;
+                    select t).Take(1);
 
             return PartialView(v.FirstOrDefault());
         }
