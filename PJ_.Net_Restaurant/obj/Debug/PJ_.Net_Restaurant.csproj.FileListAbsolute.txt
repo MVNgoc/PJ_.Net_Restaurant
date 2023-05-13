@@ -297,8 +297,6 @@ C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\rosl
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\roslyn\VBCSCompiler.exe
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Antlr3.Runtime.dll
-C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.dll
-C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.SqlServer.dll
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Microsoft.Data.Tools.Components.dll
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Microsoft.Web.Infrastructure.dll
@@ -311,8 +309,6 @@ C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\Syst
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\System.Web.WebPages.dll
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\System.Web.WebPages.Razor.dll
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\WebGrease.dll
-C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.xml
-C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.SqlServer.xml
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\System.Web.Helpers.xml
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\System.Web.Mvc.xml
 C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\System.Web.Optimization.xml
@@ -332,3 +328,7 @@ C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Fin
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\CKFinder.pdb
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.dll
 C:\Users\WIN 10\OneDrive\Desktop\TL hoc\Năm 4\HK II\Công nghệ .NET\CK\PJ Final\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.dll
+C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.xml
+C:\Users\ASUS\Desktop\Webck\Webck\PJ_.Net_Restaurant\PJ_.Net_Restaurant\bin\EntityFramework.SqlServer.xml

@@ -13,66 +13,77 @@ namespace PJ_.Net_Restaurant.Controllers
         // GET: ShopCart
         public ActionResult Index()
         {
-            if (Session["cart"] == null)
+            if(Session["Cart"] == null)
             {
-                List<Item> cart = new List<Item>();
-                Session["cart"] = cart;
+                return RedirectToAction("Index");
             }
-            return View();
+            Cart cart = Session["Cart"] as Cart;
+            return View(cart);
         }
 
         public ActionResult AddToCart(int productID)
         {
-            if (Session["cart"] == null)
+            var pro = db.Foods.SingleOrDefault(s => s.id == productID);
+            if (pro != null)
             {
-                List<Item> cart = new List<Item>();
-                Item item = new Item();
-                item.food = db.Foods.Find(productID);
-                item.quantity = 1;
-                item.price = 0;
-                item.currentDateTime = DateTime.Now;
-                cart.Add(item);
-                Session["cart"] = cart;
-            }
-            else
-            {
-                List<Item> cart = (List<Item>)Session["cart"];
-                int index = IsInCart(productID);
-                if (index != -1)
-                {
-                    cart[index].quantity++;
-                }
-                else
-                {
-                    cart.Add(new Item() { food = db.Foods.Find(productID), quantity = 1, price = 0, currentDateTime = DateTime.Now });
-                }
-                Session["cart"] = cart;
+                GetCart().Add(pro);
             }
             return RedirectToAction("Index");
         }
 
-        public int IsInCart(int productID)
+        public Cart GetCart()
         {
-            List<Item> cart = (List<Item>)Session["cart"];
-
-            for (int i = 0; i < cart.Count; i++)
+            Cart cart = Session["Cart"] as Cart;
+            if (Session["cart"] == null || cart == null)
             {
-                if (cart[i].food.id == productID)
-                {
-                    return i;
-                }
+                cart = new Cart();
+                Session["cart"] = cart;
             }
+            return cart;
 
-            return -1;
         }
 
-        public ActionResult removeFromCart(int productID)
+        public ActionResult Update_Quantity_Cart(FormCollection form)
         {
-            List<Item> cart = (List<Item>)Session["cart"];
-            int index = IsInCart(productID);
-            cart.RemoveAt(index);
-            Session["cart"] = cart;
+            Cart cart = Session["Cart"] as Cart;
+            int id_pro = int.Parse(form["Id_product"]);
+            int quantity = int.Parse(form["Quantity"]);
+            cart.Update_Quantity_Shopping(id_pro, quantity);
             return RedirectToAction("Index");
         }
+
+        public ActionResult RemoveCart(int id)
+        {
+            Cart cart = Session["Cart"] as Cart;
+            cart.Remove_CartItem(id);
+            return RedirectToAction("Index");
+        }
+
+        public PartialViewResult BagCart()
+        {
+            int _t_item = 0;
+            Cart cart = Session["Cart"] as Cart;
+            if(cart != null)
+            {
+                _t_item = cart.total_quantity();
+            }
+            ViewBag.infoCart = _t_item;
+            return PartialView("BagCart");
+        }
+
+        //Post CheckOut
+        public ActionResult CheckOut(FormCollection form)
+        {
+            try
+            {
+                Cart cart = Session["Cart"] as Cart;
+                Order
+            }
+            catch
+            {
+
+            }
+        }
+
     }
 }

@@ -1,53 +1,64 @@
-﻿@using PJ_.Net_Restaurant.Models;
+﻿@model PJ_.Net_Restaurant.Models.Cart
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout/_PublicLayout.cshtml";
 }
 
-<form method="post" action="" class="cartForm">
+<!-- <form action="" class="cartForm"> -->
+    
     <div class="table-list" id="list-bill">
         <div class="container container-list my-3">
             <table class="table-list-tb">
                 <tr class="table-list-tr">
                     <th class="table-list-th">Name</th>
                     <th class="table-list-th">Item</th>
-                    <th class="table-list-th">Date</th>
                     <th class="table-list-th">Price</th>
                     <th class="table-list-th">Quantity</th>
                     <th class="table-list-th">Total</th>
                     <th class="table-list-th">Action</th>
                 </tr>
-                @foreach (var i in (List<Item>)Session["cart"])
+                @if (Model != null)
                 {
-                    <tr class="table-list-tr">
-                        <td class="table-list-td">@i.food.name</td>
-                        <td class="table-list-td">
-                            <img src="~/Uploads/images/foods/@i.food.img" alt="@i.food.name">
-                        </td>
-                        <td class="table-list-td">@i.currentDateTime</td>
-                        <td class="table-list-td">$@i.food.price</td>
-                        <td class="table-list-td">
-                            <div class="product-qty">
-                                @i.quantity
-                            </div>
-                        </td>
-                        <td class="table-list-td">$@(i.food.price * i.quantity)</td>
-                        <td class="table-list-td">
-                            <a href="@Url.Action("removeFromCart","ShopCart",new { @productID = i.food.id })" class=""><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-                }
+                    foreach (var item in Model.Items)
+                    {
+                        double total = Convert.ToDouble(item._shopping_product.price * item._shopping_quantity);
+                        <tr class="table-list-tr">
+                            <td class="table-list-td">@Html.DisplayFor(model => item._shopping_product.name)</td>
+                            
+                            <td class="table-list-td">
+                                <img src="@Url.Content("~/Uploads/images/foods/" + item._shopping_product.img)">
+                            </td>
+
+                            <td class="table-list-td">@Html.DisplayFor(model => item._shopping_product.price)$</td>
+                            
+                            <td class="table-list-td">
+                                <div class="product-qty">
+                                    @using (Html.BeginForm("Update_Quantity_Cart", "ShopCart"))
+                                    {
+                                        <input type="hidden" value="@item._shopping_product.id" name="Id_product" />
+                                        <input type="number" value="@item._shopping_quantity" name="Quantity" />
+                                        <input type="submit" value="Update"/>
+                                    }
+                                </div>
+                            </td>
+                            <td class="table-list-td">@total$</td>
+                            <td class="table-list-td">
+                                <a href="/ShopCart/RemoveCart/@item._shopping_product.id" class=""><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                     }
+                 }
+
 
                 <tr class="table-list-tr">
-                    @{
-                        List<Item> cart = (List<Item>)Session["cart"];
-                        var total = (from data in cart select data.food.price * data.quantity).Sum();
-                    }
-                    <td class="table-list-td"><h1>Total: $@total</h1></td>
+                    <td class="table-list-td"><h1>Total: @Model.Total_Money()$</h1></td>
                 </tr>
             </table>
         </div>
     </div>
+
+    <h2>@Session["text"]</h2>
     <div class="cartBtn">
         <button type="submit">
             <a href="#" class="btn btn-secondary">
@@ -57,5 +68,5 @@
             </a>
         </button>
     </div>
-</form>
+
 
