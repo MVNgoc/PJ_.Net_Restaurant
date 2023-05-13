@@ -1,0 +1,70 @@
+﻿@model PJ_.Net_Restaurant.Models.Cart
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout/_PublicLayout.cshtml";
+}
+
+<!-- <form action="" class="cartForm"> -->
+@using (Html.BeginForm("Index", "ShopCart", FormMethod.Post, new { @class = "cartForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="table-list" id="list-bill">
+        <div class="container container-list my-3">
+            <table class="table-list-tb">
+                <tr class="table-list-tr">
+                    <th class="table-list-th">Name</th>
+                    <th class="table-list-th">Item</th>
+                    <th class="table-list-th">Price</th>
+                    <th class="table-list-th">Quantity</th>
+                    <th class="table-list-th">Total</th>
+                    <th class="table-list-th">Action</th>
+                </tr>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model.Items)
+                    {
+                        double total = Convert.ToDouble(item._shopping_product.price * item._shopping_quantity);
+                        <tr class="table-list-tr">
+                            <td class="table-list-td">@Html.DisplayFor(model => item._shopping_product.name)</td>
+
+                            <td class="table-list-td">
+                                <img src="@Url.Content(item._shopping_product.img)">
+                            </td>
+
+                            <td class="table-list-td">@Html.DisplayFor(model => item._shopping_product.price)</td>
+
+                            <td class="table-list-td">
+                                <div class="product-qty">
+                                    @Html.DisplayFor(model => item._shopping_quantity)
+                                </div>
+                            </td>
+                            <td class="table-list-td">@total</td>
+                            <td class="table-list-td">
+                                <a href="@Url.Action("removeFromCart", "ShopCart", new { @productID = i.food.id })" class=""><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                }
+
+
+                <tr class="table-list-tr">
+                    <td class="table-list-td"><h1>Total: $@total</h1></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h2>@Session["text"]</h2>
+    <div class="cartBtn">
+        <button type="submit">
+            <a href="#" class="btn btn-secondary">
+                <span class="text text-1">Apply</span>
+
+                <span class="text text-2" aria-hidden="true">Apply</span>
+            </a>
+        </button>
+    </div>
+}
+

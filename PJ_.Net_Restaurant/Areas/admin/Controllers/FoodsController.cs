@@ -13,7 +13,6 @@ using System.Web;
 using System.Web.Mvc;
 using PJ_.Net_Restaurant.Help;
 using PJ_.Net_Restaurant.Models;
-using static CKFinder.Connector.CKFinderEvent;
 
 namespace PJ_.Net_Restaurant.Areas.admin.Controllers
 {
